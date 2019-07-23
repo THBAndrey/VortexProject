@@ -1,7 +1,7 @@
+import path from 'path'
+import fs from 'fs'
+
 module.exports = {
-  /*
-  ** Headers of the page
-  */
   head: {
     title: 'vortex-web',
     meta: [
@@ -13,20 +13,14 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress bar color
-  */
   loading: { color: '#3B8070' },
-  /*
-  ** Build configuration
-  */
   css: [
-    // CSS-файл в проекте
-    //'bootstrap/dist/css/bootstrap.min.css'
+
   ],
   modules: [
     'bootstrap-vue/nuxt',
     'semantic-ui-vue/nuxt',
+    ['@nuxtjs/pwa', { }],
   ],
   build: {
     vendor: [
@@ -45,6 +39,15 @@ module.exports = {
         })
       }
     }
+  },
+  server: {
+    port: 3000, // default: 3000
+    host: 'localhost', // default: localhost,
+    timing: false,
+    // https: {
+    //   key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
+    //   cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
+    // }
   }
 }
 
