@@ -21,17 +21,9 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+    extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
     }
   }

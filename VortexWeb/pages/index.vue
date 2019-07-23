@@ -10,6 +10,9 @@
       </h2>
       <div class="links">
         <a
+          target="_blank"
+          class="button--green" @click="buttonClick" >Documentation</a>
+        <a
           href="https://nuxtjs.org/"
           target="_blank"
           class="button--green">Documentation</a>
@@ -28,6 +31,11 @@ import AppLogo from '~/components/AppLogo.vue'
 export default {
   components: {
     AppLogo
+  },
+  methods:{
+    buttonClick(){
+      console.log('ето функция');
+    }
   }
 }
 </script>
