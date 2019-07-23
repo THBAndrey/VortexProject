@@ -9,9 +9,17 @@
         Web part of service
       </h2>
       <div class="links">
-        <a
-          target="_blank"
-          class="button--green" @click="buttonClick" >Documentation</a>
+        <sui-button color="olive" content="Like" icon="heart">
+          <a
+            is="sui-label"
+            slot="label"
+            basic
+            color="olive"
+            pointing="left"
+          >
+            2,048
+          </a>
+        </sui-button>
         <a
           href="https://nuxtjs.org/"
           target="_blank"
@@ -29,6 +37,7 @@
 import AppLogo from '~/components/AppLogo.vue'
 
 export default {
+  layout: 'landing',
   components: {
     AppLogo
   },

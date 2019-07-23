@@ -20,10 +20,29 @@ module.exports = {
   /*
   ** Build configuration
   */
+  css: [
+    // CSS-файл в проекте
+    //'bootstrap/dist/css/bootstrap.min.css'
+  ],
+  modules: [
+    'bootstrap-vue/nuxt',
+    'semantic-ui-vue/nuxt',
+  ],
   build: {
-    extend(config, ctx) {
-      if (ctx.isDev) {
-        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+    vendor: [
+      
+    ],
+    extend(config, { isDev, isClient }) {
+      if (isDev) {
+        config.devtool = isClient ? 'source-map' : 'inline-source-map'
+      }
+      if (isDev && isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
       }
     }
   }
