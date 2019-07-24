@@ -15,12 +15,20 @@ module.exports = {
   },
   loading: { color: '#3B8070' },
   css: [
-
+    '~/assets/css/global.css'
   ],
   modules: [
     'bootstrap-vue/nuxt',
     'semantic-ui-vue/nuxt',
-    ['@nuxtjs/pwa', { }],
+    'nuxt-vuikit'
+    //['@nuxtjs/pwa', { }],
+  ],
+  vuikit: {
+    defaultTheme: true,
+    icons: true
+  },
+  plugins: [
+    { src: '~/plugins/vue-particles', ssr: false }
   ],
   build: {
     vendor: [
