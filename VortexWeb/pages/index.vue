@@ -2,10 +2,10 @@
   <section id="index-container" :class="theme == 'dark' ? 'dark-theme' : ''" class="container" style="height:100%;">
     <div>
       <h1 class="title">
-        vortex-web
+        Vortex web
       </h1>
       <h2 class="subtitle">
-        Web part of service
+        Remote control of your services
       </h2>
     </div>
   </section>
@@ -21,9 +21,6 @@ export default {
     theme () { return this.$store.state.themes.currentTheme }
   },
   methods:{
-    buttonClick(){
-      console.log('ето функция');
-    }
   }
 }
 </script>
