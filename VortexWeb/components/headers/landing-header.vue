@@ -1,10 +1,12 @@
 <template>
     <nav :class=" theme == 'dark' ? 'dark-nav' : '' " class="uk-navbar-container" uk-navbar>
-        <div class="uk-navbar-left">
-            <router-link class="uk-logo mx-4" to="">Vortex</router-link>
-        </div>
-        <div class="uk-navbar-right">
-            <router-link class="mx-4" to="/signin">Sign in</router-link>
+        <div id="header-container" class="container">
+            <div class="uk-navbar-left">
+                <router-link class="uk-logo" to="">Vortex</router-link>
+            </div>
+            <div class="uk-navbar-right">
+                <router-link class="" to="/signin">Sign in</router-link>
+            </div>
         </div>
     </nav>
 </template>
@@ -28,8 +30,12 @@ nav{
     height: @landing-header-height;
     width: 100%;
     background-color: @primary-green !important;
-    display: flex;
-    align-items: center;
+
+    #header-container{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 
     a {
         color: @parts-text-color !important;
