@@ -1,14 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+const cookieparser = process.server ? require('cookieparser') : undefined
 
 Vue.use(Vuex)
 
-const store = () => new Vuex.Store({
+export const state = () => ({
+  localStorage: null
+})
 
-  state: {
+export const mutations = {
+  setLocalStorage(state, ls){
+    state.localStorage = ls
+  }
+}
+
+export const actions = {
+  nuxtServerInit ({ commit }, { req }) {
+    let theme = null
+    if (req.headers.cookie) {
+      const parsed = cookieparser.parse(req.headers.cookie)
+      try {
+        theme = parsed.theme
+      } catch (err) {
+
+      }
+    }
+    commit('themes/setTheme', theme)
+  },
+  nuxtClientInit ({ commit }, { req }) {
 
   },
-  mutations: {
-
-  }
-})
+}

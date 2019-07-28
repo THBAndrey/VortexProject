@@ -1,5 +1,5 @@
 <template>
-    <nav :class=" theme == 'dark' ? 'dark-nav' : '' " class="uk-navbar-container" uk-navbar>
+    <nav :class="theme" class="uk-navbar-container" uk-navbar>
         <div id="header-container" class="container">
             <div class="uk-navbar-left">
                 <router-link class="uk-logo" to="">Vortex</router-link>
@@ -48,7 +48,7 @@ nav{
 
 @import '../../assets/less/dark-colors.less';
 
-.dark-nav{
+nav.dark{
     background-color: @primary-green-dark !important;
     a {
         color: @parts-text-color-dark !important;

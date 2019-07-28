@@ -17,10 +17,12 @@ module.exports = {
   css: [
     '~/assets/css/global.css'
   ],
+  cache: true,
   modules: [
     'bootstrap-vue/nuxt',
     'semantic-ui-vue/nuxt',
-    'nuxt-vuikit'
+    'nuxt-vuikit',
+    'cookie-universal-nuxt',
     //['@nuxtjs/pwa', { }],
   ],
   vuikit: {
@@ -28,12 +30,11 @@ module.exports = {
     icons: true
   },
   plugins: [
-    { src: '~/plugins/vue-particles', ssr: false }
+    { src: '~/plugins/vue-particles', ssr: false },
+    { src: '~/plugins/nuxt-client-init', ssr: false },
   ],
   build: {
-    vendor: [
-      
-    ],
+    vendor: [],
     extend(config, { isDev, isClient }) {
       if (isDev) {
         config.devtool = isClient ? 'source-map' : 'inline-source-map'
