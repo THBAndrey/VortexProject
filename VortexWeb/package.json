@@ -15,7 +15,10 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "bootstrap-vue": "^2.0.0-rc.27",
+    "cookie-universal-nuxt": "^2.0.16",
+    "cookieparser": "^0.1.0",
     "jquery": "^3.4.1",
+    "js-cookie": "^2.2.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "nuxt": "^2.0.0",

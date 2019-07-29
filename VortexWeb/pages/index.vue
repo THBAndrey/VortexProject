@@ -1,5 +1,5 @@
 <template>
-  <section id="index-container" :class="theme == 'dark' ? 'dark-theme' : ''" class="container" style="height:100%;">
+  <section id="index-container" :class="theme" class="container" style="height:100%;">
     <div>
       <h1 class="title">
         Vortex web
@@ -25,6 +25,7 @@ export default {
 }
 </script>
 
+// Default theme
 <style lang="less" scoped>
 @import '../assets/less/colors.less';
 
@@ -55,10 +56,11 @@ export default {
 
 </style>
 
+// Dark theme
 <style lang="less" scoped>
 @import '../assets/less/dark-colors.less';
 
-#index-container.dark-theme{
+#index-container.dark{
   color: @text-color-dark;
 }
 </style>

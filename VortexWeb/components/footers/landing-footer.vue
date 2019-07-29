@@ -1,5 +1,5 @@
 <template>
-    <footer :class="theme == 'dark' ? 'dark-footer' : ''">
+    <footer :class="theme">
 
     </footer>
 </template>
@@ -28,7 +28,7 @@ footer{
 
 @import '../../assets/less/dark-colors.less';
 
-.dark-footer{
+footer.dark{
     background-color: @secondary-green-dark !important;
 }
 
