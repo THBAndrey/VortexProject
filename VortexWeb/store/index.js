@@ -16,16 +16,12 @@ export const mutations = {
 
 export const actions = {
   nuxtServerInit ({ commit }, { req }) {
-    let theme = null
     if (req.headers.cookie) {
+      let theme = null
       const parsed = cookieparser.parse(req.headers.cookie)
-      try {
-        theme = parsed.theme
-      } catch (err) {
-
-      }
+      theme = parsed.theme
+      commit('themes/setTheme', theme)
     }
-    commit('themes/setTheme', theme)
   },
   nuxtClientInit ({ commit }, { req }) {
 

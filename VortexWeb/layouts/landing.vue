@@ -52,7 +52,7 @@ main{
 .theme-switcher{
   position: fixed;
   bottom: 10px;
-  right: 10px;
+  right: 27px;
 }
 </style>
 
