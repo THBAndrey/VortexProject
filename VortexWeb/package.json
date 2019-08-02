@@ -13,6 +13,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.8.1",
+    "@nuxtjs/axios": "^5.5.4",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "bootstrap-vue": "^2.0.0-rc.27",
     "cookie-universal-nuxt": "^2.0.16",
@@ -22,6 +24,7 @@
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "nuxt": "^2.0.0",
+    "nuxt-i18n": "^6.0.0",
     "nuxt-vuikit": "^1.0.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-vue": "^0.8.1",

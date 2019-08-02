@@ -23,8 +23,44 @@ module.exports = {
     'semantic-ui-vue/nuxt',
     'nuxt-vuikit',
     'cookie-universal-nuxt',
+    'nuxt-i18n',
     //['@nuxtjs/pwa', { }],
   ],
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.js',
+        name: 'English',
+        flag: 'us'
+      },
+      {
+        code: 'ru',
+        iso: 'ru-RU',
+        file: 'ru-RU.js',
+        name: 'Русский',
+        flag: 'ru'
+      },
+      {
+        code: 'fr',
+        iso: 'fr-FR',
+        file: 'fr-FR.js',
+        name: 'Français',
+        flag: 'fr'
+      }
+    ],
+    seo: true,
+    //baseUrl: 'https://vortex.com',
+    defaultLocale: 'en',
+    lazy: true,
+    langDir: 'langs/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n',
+      alwaysRedirect: false,
+    },
+  },
   vuikit: {
     defaultTheme: true,
     icons: true

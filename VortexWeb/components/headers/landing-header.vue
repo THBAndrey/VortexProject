@@ -2,10 +2,20 @@
     <nav :class="theme" class="uk-navbar-container" uk-navbar>
         <div id="header-container" class="container">
             <div class="uk-navbar-left">
-                <router-link class="uk-logo" to="">Vortex</router-link>
+                <n-link class="uk-logo d-flex align-items-center" :to="localePath('index')">
+                    <span class="header-logo mr-2"></span>
+                    Vortex
+                </n-link>
             </div>
             <div class="uk-navbar-right">
-                <router-link class="" to="/signin">Sign in</router-link>
+                <sui-dropdown :text="$t('lang')" class="icon" floating labeled>
+                    <sui-dropdown-menu>
+                        <nuxt-link tag="sui-dropdown-item" v-for="locale in availableLocales" :key="locale.code" class="text-dark" :to="switchLocalePath(locale.code)">
+                            <sui-flag :name="locale.flag" />{{ locale.name }}
+                        </nuxt-link>
+                    </sui-dropdown-menu>
+                </sui-dropdown>
+                <n-link class="" :to="localePath('signin')">{{ $t('signin') }}</n-link>
             </div>
         </div>
     </nav>
@@ -13,8 +23,16 @@
 
 <script>
 export default {
+    mounted(){
+        console.log(this.$i18n);
+    },
+    data(){
+        return{
+        }
+    },
     computed: {
-      theme () { return this.$store.state.themes.currentTheme }
+        theme () { return this.$store.state.themes.currentTheme },
+        availableLocales () { return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale) }
     },
 }
 </script>
@@ -37,8 +55,23 @@ nav{
         align-items: center;
     }
 
-    a {
+    a, .dropdown {
         color: @parts-text-color !important;
+    }
+    .header-logo{
+        mask: url(~static/vortex.svg);
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        mask-size: contain;
+
+        background: @parts-text-color !important;
+    }
+}
+
+.uk-navbar-right{
+    > *{
+        margin-left: 20px;
     }
 }
 
@@ -50,8 +83,11 @@ nav{
 
 nav.dark{
     background-color: @primary-green-dark !important;
-    a {
+    a, .dropdown {
         color: @parts-text-color-dark !important;
+    }
+    .header-logo{
+        background: @parts-text-color-dark !important;
     }
 }
 

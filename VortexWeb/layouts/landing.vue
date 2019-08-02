@@ -1,6 +1,6 @@
 <template>
   <div>
-    <landing-header/>
+    <!-- <landing-header/> -->
     <main :class="theme">
         <nuxt/>
     </main>
@@ -44,7 +44,7 @@ export default {
 @import '../assets/less/colors.less';
 
 main{
-    padding-top: @landing-header-height;
+    // padding-top: @landing-header-height;
     min-height: 100vh;
     background-color: @body-background;
 }

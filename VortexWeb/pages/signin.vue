@@ -2,9 +2,7 @@
     <div>
         <vk-card>
             <vk-card-title class="align-middle">
-                <router-link to="/">
-                    <vk-icon icon="chevron-left" ratio="1.5" class="back-button"></vk-icon>
-                </router-link>
+                <vk-icon @click="$router.go(-1)" icon="chevron-left" ratio="1.5" class="back-button"></vk-icon>
                 Sign up
             </vk-card-title>
             <div class="d-flex form-section">
@@ -44,7 +42,11 @@ export default {
 }
 
 .back-button{
-    // cursor: pointer;
+     cursor: pointer;
+
+     &:hover{
+         opacity: 0.7;
+     }
 }
 
 </style>
