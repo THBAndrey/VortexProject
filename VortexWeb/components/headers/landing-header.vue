@@ -1,13 +1,13 @@
 <template>
-    <nav :class="theme" class="uk-navbar-container" uk-navbar>
+    <nav :class="theme" class="" >
         <div id="header-container" class="container">
-            <div class="uk-navbar-left">
-                <n-link class="uk-logo d-flex align-items-center" :to="localePath('index')">
+            <div class="">
+                <n-link class="d-flex align-items-center" :to="localePath('index')">
                     <span class="header-logo mr-2"></span>
                     Vortex
                 </n-link>
             </div>
-            <div class="uk-navbar-right">
+            <div class="">
                 <sui-dropdown :text="$t('lang')" class="icon" floating labeled>
                     <sui-dropdown-menu>
                         <nuxt-link tag="sui-dropdown-item" v-for="locale in availableLocales" :key="locale.code" class="text-dark" :to="switchLocalePath(locale.code)">

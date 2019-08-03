@@ -16,6 +16,7 @@
     "@nuxtjs/auth": "^4.8.1",
     "@nuxtjs/axios": "^5.5.4",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
+    "@nuxtjs/tailwindcss": "^1.1.1",
     "bootstrap-vue": "^2.0.0-rc.27",
     "cookie-universal-nuxt": "^2.0.16",
     "cookieparser": "^0.1.0",

@@ -19,9 +19,10 @@ module.exports = {
   ],
   cache: true,
   modules: [
-    'bootstrap-vue/nuxt',
+    //'bootstrap-vue/nuxt',
+    '@nuxtjs/tailwindcss',
     'semantic-ui-vue/nuxt',
-    'nuxt-vuikit',
+    //'nuxt-vuikit',
     'cookie-universal-nuxt',
     'nuxt-i18n',
     //['@nuxtjs/pwa', { }],
@@ -60,10 +61,6 @@ module.exports = {
       cookieKey: 'i18n',
       alwaysRedirect: false,
     },
-  },
-  vuikit: {
-    defaultTheme: true,
-    icons: true
   },
   plugins: [
     { src: '~/plugins/vue-particles', ssr: false },
