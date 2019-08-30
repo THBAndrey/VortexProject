@@ -17,19 +17,19 @@
     "@nuxtjs/axios": "^5.5.4",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@nuxtjs/tailwindcss": "^1.1.1",
-    "bootstrap-vue": "^2.0.0-rc.27",
     "cookie-universal-nuxt": "^2.0.16",
     "cookieparser": "^0.1.0",
+    "firebase": "^6.4.2",
     "jquery": "^3.4.1",
     "js-cookie": "^2.2.0",
+    "jwt-decode": "^2.2.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "nuxt": "^2.0.0",
+    "nuxt-fire": "^2.0.0",
     "nuxt-i18n": "^6.0.0",
-    "nuxt-vuikit": "^1.0.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-vue": "^0.8.1",
-    "uikit": "^3.1.6",
     "vue-particles": "^1.0.9"
   },
   "devDependencies": {
@@ -38,5 +38,8 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
   }
 }

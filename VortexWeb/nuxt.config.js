@@ -26,6 +26,36 @@ module.exports = {
     'cookie-universal-nuxt',
     'nuxt-i18n',
     //['@nuxtjs/pwa', { }],
+    [
+      'nuxt-fire',
+      {
+        // Required:
+        config: {
+          development: {
+            apiKey: 'AIzaSyBtf8H9U6pzjsLMJLNs1p86e_95B4ASYH4',
+            authDomain: 'vortex-4b6db.firebaseapp.com',
+            databaseURL: 'https://vortex-4b6db.firebaseio.com',
+            projectId: 'vortex-4b6db',
+            storageBucket: '',
+            messagingSenderId: '951093526823',
+            appId: '1:951093526823:web:691535202ea0b370'
+          },
+          production: {
+            apiKey: 'AIzaSyBtf8H9U6pzjsLMJLNs1p86e_95B4ASYH4',
+            authDomain: 'vortex-4b6db.firebaseapp.com',
+            databaseURL: 'https://vortex-4b6db.firebaseio.com',
+            projectId: 'vortex-4b6db',
+            storageBucket: '',
+            messagingSenderId: '951093526823',
+            appId: '1:951093526823:web:691535202ea0b370'
+          }
+        },
+        // The following options are optional:
+        // useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
+        // customEnv: false,
+        // functionsLocation: 'us-central1',
+      }
+    ]
   ],
   i18n: {
     locales: [
@@ -63,6 +93,7 @@ module.exports = {
     },
   },
   plugins: [
+    { src: '~/plugins/auth-handler.js', ssr: false },
     { src: '~/plugins/vue-particles', ssr: false },
     { src: '~/plugins/nuxt-client-init', ssr: false },
   ],
