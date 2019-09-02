@@ -20,10 +20,10 @@
           <sui-modal-content>
             <sui-form :state="state">
               <sui-form-field>
-                <sui-button type="button" positive @click="loginWithGoogle" >Google</sui-button>
-                <sui-button type="button" positive @click="loginWithFacebook" >Facebook</sui-button>
-                <sui-button type="button" positive @click="loginWithGithub" >GitHub</sui-button>
-                <sui-button type="button" positive @click="loginWithMicrosoft" >Microsoft</sui-button>
+                <sui-button type="button" positive @click="loginWith(loginWithGoogle)" >Google</sui-button>
+                <sui-button type="button" positive @click="loginWith(loginWithFacebook)" >Facebook</sui-button>
+                <sui-button type="button" positive @click="loginWith(loginWithGithub)" >GitHub</sui-button>
+                <sui-button type="button" positive @click="loginWith(loginWithMicrosoft)" >Microsoft</sui-button>
               </sui-form-field>
               <sui-form-field>
                 <label>Email</label>
@@ -77,6 +77,14 @@ export default {
     },
     async login(){
       await this.loginUser({login:'lazarevand.20@gmail.com', password:'keeper74'})
+    },
+    loginWith(func){
+      func().then(()=>{
+        this.open = false
+      })
+      .catch(()=>{
+        console.log('error')
+      })
     },
     ...mapActions({
       loginWithGoogle: 'user/loginWithGoogle',

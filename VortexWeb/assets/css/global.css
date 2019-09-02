@@ -46,3 +46,8 @@ html, body{
     50% { transform: scale(1.5) }
     100% { transform: scale(0) }
 }
+
+.ui.button{
+    margin-bottom: .2em;
+    margin-top: .2em;
+}

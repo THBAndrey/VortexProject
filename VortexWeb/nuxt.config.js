@@ -17,7 +17,7 @@ module.exports = {
   css: [
     '~/assets/css/global.css'
   ],
-  cache: true,
+  // cache: true,
   modules: [
     //'bootstrap-vue/nuxt',
     '@nuxtjs/tailwindcss',
@@ -113,14 +113,22 @@ module.exports = {
       }
     }
   },
+  // render: {
+  //   http2: { 
+  //     push: true, 
+  //     pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+  //     // .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+  //     .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+  //   }
+  // },
   server: {
     port: 3000, // default: 3000
     host: 'localhost', // default: localhost,
     timing: false,
-    // https: {
-    //   key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
-    //   cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
-    // }
+    https: {
+      key: fs.readFileSync(path.resolve('cert', 'localhost-key.pem')),
+      cert: fs.readFileSync(path.resolve('cert', 'localhost.pem'))
+    }
   }
 }
 

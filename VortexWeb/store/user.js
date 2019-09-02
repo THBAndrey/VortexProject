@@ -24,26 +24,31 @@ export const actions = {
     },
     async loginWithGoogle({ dispatch, commit }){
         var provider = new firebase.auth.GoogleAuthProvider()
-        dispatch('loginPopup',provider)
+        return dispatch('loginPopup',provider)
     },
     async loginWithFacebook({ dispatch, commit }){
         var provider = new firebase.auth.FacebookAuthProvider()
-        dispatch('loginPopup',provider)
+        return dispatch('loginPopup',provider)
     },
     async loginWithGithub({ dispatch, commit }){
         var provider = new firebase.auth.GithubAuthProvider()
-        dispatch('loginPopup',provider)
+        return dispatch('loginPopup',provider)
     },
     async loginWithMicrosoft({ dispatch, commit }){
         var provider = new firebase.auth.OAuthProvider('microsoft.com')
-        dispatch('loginPopup',provider)
+        return dispatch('loginPopup',provider)
     },
     async loginPopup({ dispatch, commit }, provider){
-        await firebase.auth().signInWithPopup(provider).then(function(result) {
-            dispatch('loginSuccess',result)
-        }).catch(function(error) {
-            dispatch('loginFailed',error)
-        });
+        return new Promise(async (resolve, reject) =>{
+            await firebase.auth().signInWithPopup(provider).then(function(result) {
+                dispatch('loginSuccess',result)
+                resolve(result)
+            }).catch(function(error) {
+                dispatch('loginFailed',error)
+                reject(error)
+            });
+        })
+        
     },
     async loginSuccess({ commit }, result){
         console.log(result);
