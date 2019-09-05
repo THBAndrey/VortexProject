@@ -1,4 +1,3 @@
-import firebase from 'firebase/app'
 import cookies from 'js-cookie'
 
 export const state = () => ({
@@ -14,7 +13,7 @@ export const mutations = {
 export const actions = {
     async loginUser({ commit }, data){
         try {
-            await firebase.auth().signInWithEmailAndPassword(
+            await this.$fireAuth.signInWithEmailAndPassword(
                 data.login,
                 data.password
             )
@@ -23,24 +22,24 @@ export const actions = {
         }
     },
     async loginWithGoogle({ dispatch, commit }){
-        var provider = new firebase.auth.GoogleAuthProvider()
+        var provider = new this.$fireAuthObj.GoogleAuthProvider()
         return dispatch('loginPopup',provider)
     },
     async loginWithFacebook({ dispatch, commit }){
-        var provider = new firebase.auth.FacebookAuthProvider()
+        var provider = new this.$fireAuthObj.FacebookAuthProvider()
         return dispatch('loginPopup',provider)
     },
     async loginWithGithub({ dispatch, commit }){
-        var provider = new firebase.auth.GithubAuthProvider()
+        var provider = new this.$fireAuthObj.GithubAuthProvider()
         return dispatch('loginPopup',provider)
     },
     async loginWithMicrosoft({ dispatch, commit }){
-        var provider = new firebase.auth.OAuthProvider('microsoft.com')
+        var provider = new this.$fireAuthObj.OAuthProvider('microsoft.com')
         return dispatch('loginPopup',provider)
     },
     async loginPopup({ dispatch, commit }, provider){
         return new Promise(async (resolve, reject) =>{
-            await firebase.auth().signInWithPopup(provider).then(function(result) {
+            await this.$fireAuth.signInWithPopup(provider).then(function(result) {
                 dispatch('loginSuccess',result)
                 resolve(result)
             }).catch(function(error) {
@@ -65,13 +64,13 @@ export const actions = {
         // var errorMessage = error.message;
         // // The email of the user's account used.
         // var email = error.email;
-        // // The firebase.auth.AuthCredential type that was used.
+        // // The this.$fireAuthObj.AuthCredential type that was used.
         // var credential = error.credential;
         // // ...
     },
     async createUser({ commit }, data){
         try {
-            let cu = await await firebase.auth().createUserWithEmailAndPassword(
+            let cu = await await this.$fireAuth.createUserWithEmailAndPassword(
                 data.login,
                 data.password
             )
@@ -80,18 +79,20 @@ export const actions = {
         }
     },
     async authUser({ commit }, user){
-        const token = await firebase.auth().currentUser.getIdToken(true)
+        const token = await this.$fireAuth.currentUser.getIdToken(true)
         const userInfo = {
             name: user.displayName,
             email: user.email,
             avatar: user.photoURL,
-            uid: user.uid
+            uid: user.uid,
+            emailVerified: user.emailVerified,
+            // providerData: user.providerData
         }
         cookies.set('access_token', token) 
         commit('setUser', userInfo)
     },
     async logoutUser({ commit }){
-        await firebase.auth().signOut().then(function() {
+        await this.$fireAuth.signOut().then(function() {
             // Sign-out successful.
         }).catch(function(error) {
             // An error happened.

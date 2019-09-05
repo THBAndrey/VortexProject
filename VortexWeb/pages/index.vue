@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-gray-900 " style="height: 700px;">
+    <div :class="theme == 'dark' ? 'bg-gray-900' : 'bg-white'" style="height: 700px;">
       <section id="index-container" :class="theme" class="container" style="height:100%;">
         <div>
           <h1 class="title">
@@ -14,6 +14,7 @@
         <sui-button @click="register()">Create user</sui-button>
         <sui-button @click="login()">Login user</sui-button>
         <sui-button @click="logoutUser()">Logout</sui-button>
+        <sui-button @click="showToast({ title: 'Title', message: 'Message' })">Show toast</sui-button>
 
         <sui-modal v-model="open" :animationDuration="200" size="tiny">
           <sui-modal-header>Login</sui-modal-header>
@@ -93,7 +94,8 @@ export default {
       loginWithMicrosoft: 'user/loginWithMicrosoft',
       loginUser: 'user/loginUser',
       createUser:'user/createUser',
-      logoutUser:'user/logoutUser'
+      logoutUser:'user/logoutUser',
+      showToast:'notifications/showToast',
     }),
   }
 }

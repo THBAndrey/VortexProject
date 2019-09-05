@@ -11,8 +11,8 @@
             </sui-menu-item>
             <sui-menu-item :active="$route.fullPath === localePath('index')"><n-link :to="localePath('index')">Main</n-link></sui-menu-item>
             <sui-menu-item :active="$route.fullPath === localePath('news')"> <n-link :to="localePath('news')">News</n-link> </sui-menu-item>
-            <sui-menu-item> <n-link :to="localePath('desc')">API</n-link> </sui-menu-item>
-            <sui-menu-item> <n-link :to="localePath('about')">About</n-link> </sui-menu-item>
+            <sui-menu-item :active="$route.fullPath === localePath('desc')"> <n-link :to="localePath('desc')">API</n-link> </sui-menu-item>
+            <sui-menu-item :active="$route.fullPath === localePath('about')"> <n-link :to="localePath('about')">About</n-link> </sui-menu-item>
             <sui-menu-item position="right">
             <sui-dropdown :text="$t('lang')" class="inverted" button secondary>
                 <sui-dropdown-menu>

@@ -11,7 +11,7 @@ export default {
     layout: 'landing',
     data(){
         return{
-        open: false
+          open: false
         }
     },
     components: {

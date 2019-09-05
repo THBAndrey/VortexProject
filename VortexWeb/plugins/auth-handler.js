@@ -1,7 +1,5 @@
-import fireBase from 'firebase/app'
-
 export default async context => {
-    fireBase.auth().onAuthStateChanged(async function(user) {
+    context.app.$fireAuth.onAuthStateChanged(async function(user) {
         if (user) {
             // User is signed in.
             await context.store.dispatch('user/authUser', user)

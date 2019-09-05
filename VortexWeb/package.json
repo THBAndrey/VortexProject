@@ -28,6 +28,7 @@
     "nuxt": "^2.0.0",
     "nuxt-fire": "^2.0.0",
     "nuxt-i18n": "^6.0.0",
+    "nuxt-izitoast": "^1.0.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-vue": "^0.8.1",
     "vue-particles": "^1.0.9"

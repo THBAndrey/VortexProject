@@ -25,7 +25,15 @@ module.exports = {
     //'nuxt-vuikit',
     'cookie-universal-nuxt',
     'nuxt-i18n',
-    //['@nuxtjs/pwa', { }],
+    ['@nuxtjs/pwa', { }],
+    [
+      'nuxt-izitoast',
+      {
+        position: 'bottomLeft',
+        transitionIn: 'bounceInRight',
+        transitionOut: 'fadeOutRight',
+      }
+    ],
     [
       'nuxt-fire',
       {
@@ -94,6 +102,7 @@ module.exports = {
   },
   plugins: [
     { src: '~/plugins/auth-handler.js', ssr: false },
+    { src: '~/plugins/notifications.js', ssr: false },
     { src: '~/plugins/vue-particles', ssr: false },
     { src: '~/plugins/nuxt-client-init', ssr: false },
   ],
