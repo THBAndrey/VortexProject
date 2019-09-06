@@ -12,10 +12,10 @@ export const mutations = {
 export const actions = {
     async changeToken({ dispatch, commit }, token){
         commit('setToken',token)
-        dispatch('showToast', {
-            title: 'Token set',
-            message: token
-        })
+        // dispatch('showToast', {
+        //     title: 'Token set',
+        //     message: token
+        // })
     },
     async showToast({ dispatch, commit, state }, notice){
         this.$notify.show({

@@ -41,6 +41,13 @@ module.exports = {
           '800': 'hsl(188, 78%, 22%)',
           '900': 'hsl(188, 78%, 15%)',
         },
+        'creative-green': 'linear-gradient(0deg,#389466,#42b883)',
+        'grown-early': 'linear-gradient(to top, #0ba360 0%, #3cba92 100%)',
+        'aqua-splash': 'linear-gradient(15deg, #13547a 0%, #80d0c7 100%)',
+        'over-sun': 'linear-gradient(60deg, #abecd6 0%, #fbed96 100%)',
+        'eternal-constance': 'linear-gradient(to top, #09203f 0%, #537895 100%)',
+        'vicious-stance': 'linear-gradient(60deg, #29323c 0%, #485563 100%)',
+        'solid-stone': 'linear-gradient(to right, #243949 0%, #517fa4 100%)',
       }
     }
   },

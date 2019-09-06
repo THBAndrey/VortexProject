@@ -8,13 +8,11 @@ Vue.use(Vuex)
 export const strict = false
 
 export const state = () => ({
-  localStorage: null
+
 })
 
 export const mutations = {
-  setLocalStorage(state, ls){
-    state.localStorage = ls
-  }
+
 }
 
 export const actions = {

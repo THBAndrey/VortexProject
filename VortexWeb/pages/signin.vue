@@ -16,11 +16,11 @@ export default {
 }
 
 .back-button{
-     cursor: pointer;
+    cursor: pointer;
 
-     &:hover{
-         opacity: 0.7;
-     }
+    &:hover{
+        opacity: 0.7;
+    }
 }
 
 </style>
