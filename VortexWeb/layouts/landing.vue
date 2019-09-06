@@ -1,6 +1,7 @@
 <template>
   <div>
-    <landing-header/>
+    <!-- <landing-header/> -->
+    <mast-head></mast-head>
     <main :class="theme">
         <nuxt/>
     </main>
@@ -18,11 +19,13 @@
 <script>
 import LandingHeader from '../components/headers/landing-header'
 import LandingFooter from '../components/footers/landing-footer'
+import MastHead from '~/components/main/masthead'
 import { mapMutations, mapActions } from 'vuex'
 export default {
     components:{
         LandingHeader,
-        LandingFooter
+        LandingFooter,
+        MastHead
     },
     computed: {
       theme () { return this.$store.state.themes.currentTheme }
@@ -44,7 +47,7 @@ export default {
 @import '../assets/less/colors.less';
 
 main{
-    padding-top: @landing-header-height;
+    // padding-top: @landing-header-height;
     min-height: 100vh;
     background-color: @body-background;
 }

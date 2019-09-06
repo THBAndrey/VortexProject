@@ -17,19 +17,92 @@ module.exports = {
   css: [
     '~/assets/css/global.css'
   ],
-  cache: true,
+  // cache: true,
   modules: [
-    'bootstrap-vue/nuxt',
+    //'bootstrap-vue/nuxt',
+    '@nuxtjs/tailwindcss',
     'semantic-ui-vue/nuxt',
-    'nuxt-vuikit',
+    //'nuxt-vuikit',
     'cookie-universal-nuxt',
-    //['@nuxtjs/pwa', { }],
+    'nuxt-i18n',
+    ['@nuxtjs/pwa', { }],
+    [
+      'nuxt-izitoast',
+      {
+        position: 'bottomLeft',
+        transitionIn: 'bounceInRight',
+        transitionOut: 'fadeOutRight',
+      }
+    ],
+    [
+      'nuxt-fire',
+      {
+        // Required:
+        config: {
+          development: {
+            apiKey: 'AIzaSyBtf8H9U6pzjsLMJLNs1p86e_95B4ASYH4',
+            authDomain: 'vortex-4b6db.firebaseapp.com',
+            databaseURL: 'https://vortex-4b6db.firebaseio.com',
+            projectId: 'vortex-4b6db',
+            storageBucket: '',
+            messagingSenderId: '951093526823',
+            appId: '1:951093526823:web:691535202ea0b370'
+          },
+          production: {
+            apiKey: 'AIzaSyBtf8H9U6pzjsLMJLNs1p86e_95B4ASYH4',
+            authDomain: 'vortex-4b6db.firebaseapp.com',
+            databaseURL: 'https://vortex-4b6db.firebaseio.com',
+            projectId: 'vortex-4b6db',
+            storageBucket: '',
+            messagingSenderId: '951093526823',
+            appId: '1:951093526823:web:691535202ea0b370'
+          }
+        },
+        // The following options are optional:
+        // useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
+        // customEnv: false,
+        // functionsLocation: 'us-central1',
+      }
+    ]
   ],
-  vuikit: {
-    defaultTheme: true,
-    icons: true
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.js',
+        name: 'English',
+        flag: 'us'
+      },
+      {
+        code: 'ru',
+        iso: 'ru-RU',
+        file: 'ru-RU.js',
+        name: 'Русский',
+        flag: 'ru'
+      },
+      {
+        code: 'fr',
+        iso: 'fr-FR',
+        file: 'fr-FR.js',
+        name: 'Français',
+        flag: 'fr'
+      }
+    ],
+    seo: true,
+    //baseUrl: 'https://vortex.com',
+    defaultLocale: 'en',
+    lazy: true,
+    langDir: 'langs/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n',
+      alwaysRedirect: false,
+    },
   },
   plugins: [
+    { src: '~/plugins/auth-handler.js', ssr: false },
+    { src: '~/plugins/notifications.js', ssr: false },
     { src: '~/plugins/vue-particles', ssr: false },
     { src: '~/plugins/nuxt-client-init', ssr: false },
   ],
@@ -49,14 +122,22 @@ module.exports = {
       }
     }
   },
+  // render: {
+  //   http2: { 
+  //     push: true, 
+  //     pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+  //     // .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+  //     .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+  //   }
+  // },
   server: {
     port: 3000, // default: 3000
     host: 'localhost', // default: localhost,
     timing: false,
-    // https: {
-    //   key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
-    //   cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
-    // }
+    https: {
+      key: fs.readFileSync(path.resolve('cert', 'localhost-key.pem')),
+      cert: fs.readFileSync(path.resolve('cert', 'localhost.pem'))
+    }
   }
 }
 
