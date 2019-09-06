@@ -13,6 +13,11 @@ html, body{
     opacity: 0;
 }
 
+.ui.button{
+    margin-bottom: .2em;
+    margin-top: .2em;
+}
+
 .slide-enter-active {
     animation: slide-in .3s;
 }
@@ -28,6 +33,44 @@ html, body{
     0% { transform: translateX(0%) }
     /* 50% { transform: scale(1.5) } */
     100% { transform: translateX(-100%) }
+}
+
+.fade-enter-active {
+    animation: fade-in .2s ease-in;
+}
+.fade-leave-active {
+    animation: fade-out .2s ease-in;
+}
+@keyframes fade-in {
+    0% { opacity: 0; }
+    /* 50% { transform: scale(1.5) } */
+    75% { opacity: 1; }
+    100% { opacity: 1; }
+}
+@keyframes fade-out {
+    0% { opacity: 1; }
+    /* 50% { transform: scale(1.5) } */
+    75% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.slide-fade-enter-active {
+    animation: slide-fade-in .2s ease-in;
+}
+.slide-fade-leave-active {
+    animation: slide-fade-out .2s ease-in;
+}
+@keyframes slide-fade-in {
+    0% { opacity: 0; transform: translateX(100%); }
+    /* 50% { transform: scale(1.5) } */
+    /* 50% { opacity: 1; } */
+    100% { opacity: 1; transform: translateX(0%); }
+}
+@keyframes slide-fade-out {
+    0% { opacity: 1; transform: translateX(0%); }
+    /* 50% { transform: scale(1.5) } */
+    /* 50% { opacity: 0; } */
+    100% { opacity: 0; transform: translateX(-100%); }
 }
 
 .bounce-enter-active {
@@ -47,7 +90,3 @@ html, body{
     100% { transform: scale(0) }
 }
 
-.ui.button{
-    margin-bottom: .2em;
-    margin-top: .2em;
-}

@@ -52,10 +52,6 @@ export default {
 @import '../../assets/less/colors.less';
 @import '../../assets/less/variables.less';
 
-.header-nav-logo:hover > .header-logo{
-    transform: rotate(360deg);
-}
-
 .header-logo{
     mask: url(~static/vortex.svg);
     display: inline-block;
@@ -66,5 +62,8 @@ export default {
     background: @parts-text-color !important;
 }
 
-</style>
+.header-nav-logo:hover > .header-logo{
+    transform: rotate(360deg);
+}
 
+</style>

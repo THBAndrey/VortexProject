@@ -53,7 +53,7 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  transition: 'slide',
+  transition: 'fade',
   layout: 'landing',
   data(){
     return{
@@ -67,9 +67,9 @@ export default {
   components: {
   },
   computed: {
-    theme () { return this.$store.state.themes.currentTheme },
     ...mapState({
-      user: state => state.user.currentUser
+      user: state => state.user.currentUser,
+      theme: state => state.themes.currentTheme
     })
   },
   methods:{

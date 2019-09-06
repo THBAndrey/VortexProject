@@ -1,8 +1,8 @@
 <template>
-  <div class="position:relative;">
-    <no-ssr>
+  <div>
+    <client-only>
       <vue-particles class="particles" :clickEffect="false" color="#fff" />
-    </no-ssr>
+    </client-only>
     <main>
       <nuxt/>
     </main>

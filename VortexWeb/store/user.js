@@ -11,15 +11,19 @@ export const mutations = {
 }
 
 export const actions = {
-    async loginUser({ commit }, data){
-        try {
+    async loginUser({ dispatch, commit }, data){
+        return new Promise(async (resolve, reject) => {
             await this.$fireAuth.signInWithEmailAndPassword(
                 data.login,
                 data.password
-            )
-        } catch (e) {
-            alert(e)
-        }
+            ).then(function(result) {
+                dispatch('loginSuccess',result)
+                resolve(result)
+            }).catch(function(error) {
+                dispatch('loginFailed',error)
+                reject(error)
+            })
+        })
     },
     async loginWithGoogle({ dispatch, commit }){
         var provider = new this.$fireAuthObj.GoogleAuthProvider()
@@ -45,7 +49,7 @@ export const actions = {
             }).catch(function(error) {
                 dispatch('loginFailed',error)
                 reject(error)
-            });
+            })
         })
         
     },
@@ -57,8 +61,9 @@ export const actions = {
         // var user = result.user;
         // // ...
     },
-    async loginFailed({ commit }, error){
+    async loginFailed({ dispatch, commit }, error){
         console.error(error);
+        dispatch('notifications/showToast', { title: 'Ошибка входа', message: error.message }, { root: true })
         // // Handle Errors here.
         // var errorCode = error.code;
         // var errorMessage = error.message;
@@ -75,7 +80,7 @@ export const actions = {
                 data.password
             )
         } catch (e) {
-        alert(e)
+            alert(e)
         }
     },
     async authUser({ commit }, user){

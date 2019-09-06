@@ -1,13 +1,13 @@
 <template>
   <div>
-      ansdhasnjdlkjalsjdlkasjlkdnlaksnldn
+      <sui-button>Show Modal</sui-button>
   </div>
 </template>
 
 <script>
 
 export default {
-    transition: 'slide',
+    transition: 'fade',
     layout: 'landing',
     data(){
         return{
@@ -17,7 +17,7 @@ export default {
     components: {
     },
     computed: {
-        theme () { return this.$store.state.themes.currentTheme }
+        
     },
     methods:{
     }
