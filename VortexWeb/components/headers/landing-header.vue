@@ -15,7 +15,7 @@
                         </nuxt-link>
                     </sui-dropdown-menu>
                 </sui-dropdown>
-                <n-link class="" :to="localePath('signin')">{{ $t('signin') }}</n-link>
+                <n-link class="" :to="localePath('login')">{{ $t('login') }}</n-link>
             </div>
         </div>
     </nav>

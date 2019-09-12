@@ -53,6 +53,7 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
+  name: "Main",
   transition: 'fade',
   layout: 'landing',
   data(){

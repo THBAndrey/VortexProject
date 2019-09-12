@@ -25,19 +25,20 @@ export const actions = {
             })
         })
     },
-    async loginWithGoogle({ dispatch, commit }){
+
+    loginWithGoogle({ dispatch, commit }){
         var provider = new this.$fireAuthObj.GoogleAuthProvider()
         return dispatch('loginPopup',provider)
     },
-    async loginWithFacebook({ dispatch, commit }){
+    loginWithFacebook({ dispatch, commit }){
         var provider = new this.$fireAuthObj.FacebookAuthProvider()
         return dispatch('loginPopup',provider)
     },
-    async loginWithGithub({ dispatch, commit }){
+    loginWithGithub({ dispatch, commit }){
         var provider = new this.$fireAuthObj.GithubAuthProvider()
         return dispatch('loginPopup',provider)
     },
-    async loginWithMicrosoft({ dispatch, commit }){
+    loginWithMicrosoft({ dispatch, commit }){
         var provider = new this.$fireAuthObj.OAuthProvider('microsoft.com')
         return dispatch('loginPopup',provider)
     },
@@ -74,14 +75,18 @@ export const actions = {
         // // ...
     },
     async createUser({ commit }, data){
-        try {
-            let cu = await await this.$fireAuth.createUserWithEmailAndPassword(
+        return new Promise(async (resolve, reject) => {
+            await this.$fireAuth.createUserWithEmailAndPassword(
                 data.login,
                 data.password
-            )
-        } catch (e) {
-            alert(e)
-        }
+            ).then(function(result) {
+                // dispatch('registerSuccess',result)
+                resolve(result)
+            }).catch(function(error) {
+                // dispatch('registerFailed',error)
+                reject(error)
+            })
+        })
     },
     async authUser({ commit }, user){
         const token = await this.$fireAuth.currentUser.getIdToken(true)
