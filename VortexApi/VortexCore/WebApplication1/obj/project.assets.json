@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\GitHub\\VortexProject\\VortexApi\\VortexCore\\WebApplication1\\WebApplication1.csproj",
-      "projectName": "WebApplication1",
-      "projectPath": "E:\\GitHub\\VortexProject\\VortexApi\\VortexCore\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "E:\\GitHub\\VortexProject\\VortexApi\\VortexCore\\WebApplication1\\VortexCore.csproj",
+      "projectName": "VortexCore",
+      "projectPath": "E:\\GitHub\\VortexProject\\VortexApi\\VortexCore\\WebApplication1\\VortexCore.csproj",
       "packagesPath": "C:\\Users\\lazar\\.nuget\\packages\\",
       "outputPath": "E:\\GitHub\\VortexProject\\VortexApi\\VortexCore\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",

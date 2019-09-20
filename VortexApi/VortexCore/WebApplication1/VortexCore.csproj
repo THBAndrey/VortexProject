@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AssemblyName>VortexCore</AssemblyName>
+    <RootNamespace>VortexCore</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
