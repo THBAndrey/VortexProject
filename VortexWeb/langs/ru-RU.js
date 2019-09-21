@@ -1,6 +1,6 @@
 export default {
     welcomeDesc: 'Удаленное управление вашими сервисами',
-    signin: 'Вход',
+    login: 'Вход',
     signup: 'Регистрация',
     lang: 'Язык'
 }

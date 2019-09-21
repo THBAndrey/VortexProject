@@ -11,29 +11,34 @@ export const mutations = {
 }
 
 export const actions = {
-    async loginUser({ commit }, data){
-        try {
+    async loginUser({ dispatch, commit }, data){
+        return new Promise(async (resolve, reject) => {
             await this.$fireAuth.signInWithEmailAndPassword(
                 data.login,
                 data.password
-            )
-        } catch (e) {
-            alert(e)
-        }
+            ).then(function(result) {
+                dispatch('loginSuccess',result)
+                resolve(result)
+            }).catch(function(error) {
+                dispatch('loginFailed',error)
+                reject(error)
+            })
+        })
     },
-    async loginWithGoogle({ dispatch, commit }){
+
+    loginWithGoogle({ dispatch, commit }){
         var provider = new this.$fireAuthObj.GoogleAuthProvider()
         return dispatch('loginPopup',provider)
     },
-    async loginWithFacebook({ dispatch, commit }){
+    loginWithFacebook({ dispatch, commit }){
         var provider = new this.$fireAuthObj.FacebookAuthProvider()
         return dispatch('loginPopup',provider)
     },
-    async loginWithGithub({ dispatch, commit }){
+    loginWithGithub({ dispatch, commit }){
         var provider = new this.$fireAuthObj.GithubAuthProvider()
         return dispatch('loginPopup',provider)
     },
-    async loginWithMicrosoft({ dispatch, commit }){
+    loginWithMicrosoft({ dispatch, commit }){
         var provider = new this.$fireAuthObj.OAuthProvider('microsoft.com')
         return dispatch('loginPopup',provider)
     },
@@ -45,20 +50,21 @@ export const actions = {
             }).catch(function(error) {
                 dispatch('loginFailed',error)
                 reject(error)
-            });
+            })
         })
         
     },
     async loginSuccess({ commit }, result){
-        console.log(result);
+        // console.log(result);
         // // This gives you a Google Access Token. You can use it to access the Google API.
         // var token = result.credential.accessToken;
         // // The signed-in user info.
         // var user = result.user;
         // // ...
     },
-    async loginFailed({ commit }, error){
-        console.error(error);
+    async loginFailed({ dispatch, commit }, error){
+        // console.error(error);
+        // dispatch('notifications/showToast', { title: 'Ошибка входа', message: error.message }, { root: true })
         // // Handle Errors here.
         // var errorCode = error.code;
         // var errorMessage = error.message;
@@ -69,14 +75,18 @@ export const actions = {
         // // ...
     },
     async createUser({ commit }, data){
-        try {
-            let cu = await await this.$fireAuth.createUserWithEmailAndPassword(
+        return new Promise(async (resolve, reject) => {
+            await this.$fireAuth.createUserWithEmailAndPassword(
                 data.login,
                 data.password
-            )
-        } catch (e) {
-        alert(e)
-        }
+            ).then(function(result) {
+                // dispatch('registerSuccess',result)
+                resolve(result)
+            }).catch(function(error) {
+                // dispatch('registerFailed',error)
+                reject(error)
+            })
+        })
     },
     async authUser({ commit }, user){
         const token = await this.$fireAuth.currentUser.getIdToken(true)

@@ -15,7 +15,7 @@
                         </nuxt-link>
                     </sui-dropdown-menu>
                 </sui-dropdown>
-                <n-link class="" :to="localePath('signin')">{{ $t('signin') }}</n-link>
+                <n-link class="" :to="localePath('login')">{{ $t('login') }}</n-link>
             </div>
         </div>
     </nav>
@@ -24,7 +24,6 @@
 <script>
 export default {
     mounted(){
-        console.log(this.$i18n);
     },
     data(){
         return{

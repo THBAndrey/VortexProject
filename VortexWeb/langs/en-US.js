@@ -1,6 +1,6 @@
 export default {
     welcomeDesc: 'Remote control of your services',
-    signin: 'Sign in',
+    login: 'Login',
     signup: 'Sign up',
     lang: 'Lang'
 }

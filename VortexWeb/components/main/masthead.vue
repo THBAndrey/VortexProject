@@ -21,8 +21,8 @@
                     </n-link>
                 </sui-dropdown-menu>
             </sui-dropdown>
-            <n-link class="ml-2" :to="localePath('signin')">
-                <sui-button inverted>{{ currentUser ? currentUser.email : $t('signin') }}</sui-button>
+            <n-link class="ml-2" :to="currentUser ? localePath('cabinet-profile') : localePath('login')">
+                <sui-button inverted>{{ currentUser ? currentUser.email : $t('login') }}</sui-button>
             </n-link>
             </sui-menu-item>
         </sui-menu>
@@ -52,10 +52,6 @@ export default {
 @import '../../assets/less/colors.less';
 @import '../../assets/less/variables.less';
 
-.header-nav-logo:hover > .header-logo{
-    transform: rotate(360deg);
-}
-
 .header-logo{
     mask: url(~static/vortex.svg);
     display: inline-block;
@@ -66,5 +62,8 @@ export default {
     background: @parts-text-color !important;
 }
 
-</style>
+.header-nav-logo:hover > .header-logo{
+    transform: rotate(360deg);
+}
 
+</style>

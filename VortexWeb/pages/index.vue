@@ -10,40 +10,9 @@
             {{ $t('welcomeDesc') }}
           </h2>
         </div>
-        <sui-button @click="open = !open">Show Modal</sui-button>
-        <sui-button @click="register()">Create user</sui-button>
-        <sui-button @click="login()">Login user</sui-button>
         <sui-button @click="logoutUser()">Logout</sui-button>
         <sui-button @click="showToast({ title: 'Title', message: 'Message' })">Show toast</sui-button>
 
-        <sui-modal v-model="open" :animationDuration="200" size="tiny">
-          <sui-modal-header>Login</sui-modal-header>
-          <sui-modal-content>
-            <sui-form :state="state">
-              <sui-form-field>
-                <sui-button type="button" positive @click="loginWith(loginWithGoogle)" >Google</sui-button>
-                <sui-button type="button" positive @click="loginWith(loginWithFacebook)" >Facebook</sui-button>
-                <sui-button type="button" positive @click="loginWith(loginWithGithub)" >GitHub</sui-button>
-                <sui-button type="button" positive @click="loginWith(loginWithMicrosoft)" >Microsoft</sui-button>
-              </sui-form-field>
-              <sui-form-field>
-                <label>Email</label>
-                <input type="email" placeholder="Email" v-model="email" >
-              </sui-form-field>
-              <sui-form-field>
-                <label>Password</label>
-                <input type="password" placeholder="Password" v-model="password" >
-              </sui-form-field>
-              <sui-form-field>
-                <sui-checkbox label="I agree to the Terms and Conditions" />
-              </sui-form-field>
-            </sui-form>
-          </sui-modal-content>
-          <sui-modal-actions>
-            <sui-button @click="open = !open">Cancel</sui-button>
-            <sui-button positive @click="state = 'loading'">Login</sui-button>
-          </sui-modal-actions>
-        </sui-modal>
       </section>
     </div>
   </div>
@@ -53,47 +22,24 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  transition: 'slide',
+  name: "Main",
+  transition: 'fade',
   layout: 'landing',
   data(){
     return{
-      open: false,
-      email: null,
-      password: null,
-      loading: false,
-      state: null
+      
     }
   },
   components: {
   },
   computed: {
-    theme () { return this.$store.state.themes.currentTheme },
     ...mapState({
-      user: state => state.user.currentUser
+      user: state => state.user.currentUser,
+      theme: state => state.themes.currentTheme
     })
   },
   methods:{
-    async register(){
-      await this.createUser({login:'lazarevand.20@gmail.com', password:'keeper74'})
-    },
-    async login(){
-      await this.loginUser({login:'lazarevand.20@gmail.com', password:'keeper74'})
-    },
-    loginWith(func){
-      func().then(()=>{
-        this.open = false
-      })
-      .catch(()=>{
-        console.log('error')
-      })
-    },
     ...mapActions({
-      loginWithGoogle: 'user/loginWithGoogle',
-      loginWithFacebook: 'user/loginWithFacebook',
-      loginWithGithub: 'user/loginWithGithub',
-      loginWithMicrosoft: 'user/loginWithMicrosoft',
-      loginUser: 'user/loginUser',
-      createUser:'user/createUser',
       logoutUser:'user/logoutUser',
       showToast:'notifications/showToast',
     }),
