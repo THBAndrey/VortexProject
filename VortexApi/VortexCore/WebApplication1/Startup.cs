@@ -42,6 +42,8 @@ namespace VortexCore
 
             app.UseAuthorization();
 
+            new Services.FirebaseControl();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
