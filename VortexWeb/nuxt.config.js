@@ -10,7 +10,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Web part of service' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' }
     ]
   },
   loading: { color: '#3B8070' },

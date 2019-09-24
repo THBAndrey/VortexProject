@@ -1,31 +1,37 @@
 <template>
   <div>
-    <!-- <landing-header/> -->
-    <mast-head></mast-head>
-    <main :class="theme">
-        <nuxt/>
-    </main>
-    <landing-footer/>
-    <div class="theme-switcher" >
-      <div is="sui-button-group">
-        <sui-button @click="changeTheme(0)">Light</sui-button>
-        <sui-button-or />
-        <sui-button @click="changeTheme(1)" secondary>Dark</sui-button>
+    <nav-menu>
+      <div slot="content">
+        <mast-head></mast-head>
+        <main :class="theme">
+            <nuxt/>
+        </main>
+        <landing-footer/>
+        <div class="theme-switcher" >
+          <div is="sui-button-group">
+            <sui-button @click="changeTheme(0)">Light</sui-button>
+            <sui-button-or />
+            <sui-button @click="changeTheme(1)" secondary>Dark</sui-button>
+          </div>
+        </div>
       </div>
-    </div>
+    </nav-menu>
   </div>
 </template>
 
 <script>
-import LandingHeader from '../components/headers/landing-header'
-import LandingFooter from '../components/footers/landing-footer'
+import LandingHeader from '~/components/headers/landing-header'
+import LandingFooter from '~/components/footers/landing-footer'
 import MastHead from '~/components/main/masthead'
+import NavMenu from '~/components/common/nav-menu'
+
 import { mapMutations, mapActions } from 'vuex'
 export default {
     components:{
         LandingHeader,
         LandingFooter,
-        MastHead
+        MastHead,
+        NavMenu
     },
     computed: {
       theme () { return this.$store.state.themes.currentTheme }
@@ -37,7 +43,7 @@ export default {
     methods:{
       ...mapActions({
         changeTheme: 'themes/changeTheme'
-      })
+      }),
     }
 }
 </script>
