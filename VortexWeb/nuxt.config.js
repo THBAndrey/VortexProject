@@ -1,5 +1,7 @@
-import path from 'path'
-import fs from 'fs'
+/*jshint esversion: 6 */
+
+import path from 'path';
+import fs from 'fs';
 
 module.exports = {
   head: {
@@ -135,10 +137,6 @@ module.exports = {
     port: 3000, // default: 3000
     host: 'localhost', // default: localhost,
     timing: false,
-    https: {
-      key: fs.readFileSync(path.resolve('cert', 'localhost-key.pem')),
-      cert: fs.readFileSync(path.resolve('cert', 'localhost.pem'))
-    }
   }
-}
+};
 

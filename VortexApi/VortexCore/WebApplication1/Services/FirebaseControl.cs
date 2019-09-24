@@ -22,7 +22,7 @@ namespace VortexCore.Services
             var message = new Message()
             {
                 Data = messageData,
-                Token = "cWInGw208aY:APA91bHP2THZL1FztHjZcwhYPIITx9cuFZBfgiQ58x0qfkjAwcfoIbBgRRNVdygq2aKumGar9sKa3aUzdLSu3LoS7waMuid_C8aVGS5U_9LklMb6Z25g2lKRF_r0elzJUsGQVJCtA8Yx"
+                Token = "fGAB6Qdn13A:APA91bFx12LswYRDAz2Awsfm1ek5aqc7VrybMpBveAKYEXxnPMUIaUB0PQaRHiapTNIhevisWWBinrrS6f7SVzUgXRF4frrs2XCn4d2clPBTqKwd8wVoDc8loi7vSxfdVcPCjSO8Bos4"
             };
             await messaging.SendAsync(message);
         }

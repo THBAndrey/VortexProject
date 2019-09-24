@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../../assets/less/colors';
+@import '../../assets/less/dark-colors';
 
 @menu-height: 50px;
 
@@ -60,7 +62,7 @@ export default {
     width: 100%;
     bottom: 0;
     height: @menu-height;
-    background: black;
+    background: @body-background;
     display: flex;
     justify-content: space-around;
     align-items: stretch;
@@ -73,8 +75,8 @@ export default {
     align-items: stretch;
     width: 100%;
     bottom: @menu-height;
-    background: black;
-    color: white;
+    background: @body-background;
+    color: @text-color;
     max-height: 400px;
     transition: .3s;
     overflow-x: hidden;
@@ -100,7 +102,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: @text-color;
     width: 20%;
     font-size: 18px;
 
@@ -120,10 +122,15 @@ export default {
 }
 
 .content{
-    padding-bottom: @menu-height;
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+    .content{
+        padding-bottom: @menu-height;
+    }
 }
 
 .vortex-icon{
@@ -132,7 +139,7 @@ export default {
     width: 18px;
     height: 18px;
     mask-size: contain;
-    background: white;
+    background: @text-color;
 }
 
 </style>
