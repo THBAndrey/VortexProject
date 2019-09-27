@@ -1,5 +1,7 @@
-import path from 'path'
-import fs from 'fs'
+/*jshint esversion: 6 */
+
+import path from 'path';
+import fs from 'fs';
 
 module.exports = {
   head: {
@@ -10,7 +12,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Web part of service' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' }
     ]
   },
   loading: { color: '#3B8070' },
@@ -134,10 +137,6 @@ module.exports = {
     port: 3000, // default: 3000
     host: 'localhost', // default: localhost,
     timing: false,
-    https: {
-      key: fs.readFileSync(path.resolve('cert', 'localhost-key.pem')),
-      cert: fs.readFileSync(path.resolve('cert', 'localhost.pem'))
-    }
   }
-}
+};
 

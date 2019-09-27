@@ -25,7 +25,6 @@ export const actions = {
             })
         })
     },
-
     loginWithGoogle({ dispatch, commit }){
         var provider = new this.$fireAuthObj.GoogleAuthProvider()
         return dispatch('loginPopup',provider)
@@ -52,7 +51,6 @@ export const actions = {
                 reject(error)
             })
         })
-        
     },
     async loginSuccess({ commit }, result){
         // console.log(result);
@@ -98,7 +96,7 @@ export const actions = {
             emailVerified: user.emailVerified,
             // providerData: user.providerData
         }
-        cookies.set('access_token', token) 
+        cookies.set('access_token', token)
         commit('setUser', userInfo)
     },
     async logoutUser({ commit }){
@@ -109,5 +107,19 @@ export const actions = {
         });
         cookies.remove('access_token');
         commit('setUser', null)
+    },
+    async updateUser({ commit }, user){
+        return new Promise(async (resolve, reject) => {
+            await this.$fireAuth.currentUser.updateProfile({
+                displayName: user.name,
+                photoURL: user.avatar
+            }).then(function(result) {
+                // dispatch('updateUserSuccess',result)
+                resolve(result)
+            }).catch(function(error) {
+                // dispatch('updateUserFailed',error)
+                reject(error)
+            })
+        })
     }
 }

@@ -7,7 +7,7 @@
 <script>
 
 export default {
-    transition: 'fade',
+    transition: 'slide',
     layout: 'landing',
     data(){
         return{

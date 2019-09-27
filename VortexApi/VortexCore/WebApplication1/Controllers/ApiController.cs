@@ -13,10 +13,13 @@ namespace VortexCore.Controllers
     public class ApiController : ControllerBase
     {
         //get: api/SendMessage
-        public bool SendMessage()
+        public ActionResult SendMessage()
         {
-            FirebaseControl.SendMessage().Wait();
-            return true;
+            FirebaseControl.SendMessage().ContinueWith((task) =>
+            {
+                Console.WriteLine("Message sent");
+            });
+            return new OkResult();
         }
     }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="theme == 'dark' ? 'bg-gray-900' : 'bg-white'" style="height: 700px;">
+    <div :class="theme == 'dark' ? 'bg-gray-900' : 'bg-white'">
       <section id="index-container" :class="theme" class="container" style="height:100%;">
         <div>
           <h1 class="title">
@@ -23,7 +23,7 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
   name: "Main",
-  transition: 'fade',
+  transition: 'slide',
   layout: 'landing',
   data(){
     return{
@@ -52,6 +52,7 @@ export default {
 
 #index-container{
   color: @text-color;
+  padding-bottom: 50px;
 }
 
 .title {
