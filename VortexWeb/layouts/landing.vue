@@ -25,7 +25,7 @@ import LandingFooter from '~/components/footers/landing-footer'
 import MastHead from '~/components/main/masthead'
 import NavMenu from '~/components/common/nav-menu'
 
-import { mapMutations, mapActions } from 'vuex'
+import { mapMutations, mapActions, mapState } from 'vuex'
 export default {
     components:{
         LandingHeader,
@@ -34,7 +34,9 @@ export default {
         NavMenu
     },
     computed: {
-      theme () { return this.$store.state.themes.currentTheme }
+      ...mapState({
+        theme: state => state.themes.currentTheme
+      })
     },
     data(){
       return{

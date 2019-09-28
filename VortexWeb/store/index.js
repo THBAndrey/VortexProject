@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {getUserFromCookie, getUserFromSession} from '@/authentication'
+import { getUserFromCookie, getUserFromSession } from '@/authentication'
 const cookieparser = process.server ? require('cookieparser') : undefined
 
 Vue.use(Vuex)

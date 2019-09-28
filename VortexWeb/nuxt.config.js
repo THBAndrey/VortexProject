@@ -5,7 +5,7 @@ import fs from 'fs';
 
 module.exports = {
   head: {
-    title: 'vortex-web',
+    title: 'Vortex web',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -93,7 +93,6 @@ module.exports = {
       }
     ],
     seo: true,
-    //baseUrl: 'https://vortex.com',
     defaultLocale: 'en',
     lazy: true,
     langDir: 'langs/',
@@ -125,14 +124,6 @@ module.exports = {
       }
     }
   },
-  // render: {
-  //   http2: { 
-  //     push: true, 
-  //     pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
-  //     // .filter(f => f.asType === 'script' && f.file === 'runtime.js')
-  //     .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
-  //   }
-  // },
   server: {
     port: 3000, // default: 3000
     host: 'localhost', // default: localhost,
