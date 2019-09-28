@@ -10,9 +10,10 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   computed: {
-    theme () { return this.$store.state.themes.currentTheme }
+    theme: state => state.themes.currentTheme
   },
 }
 </script>

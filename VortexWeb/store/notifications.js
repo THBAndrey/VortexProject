@@ -25,6 +25,6 @@ export const actions = {
             progressBarColor: 'rgb(0, 255, 184)',
             layout: 1,
             maxWidth: '500px'
-        })      
+        })
     }
 }

@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     transition: 'slide',
     layout: 'landing',
@@ -16,7 +18,9 @@ export default {
     components: {
     },
     computed: {
-        theme () { return this.$store.state.themes.currentTheme }
+        ...mapState({
+            theme: state => state.themes.currentTheme
+        })
     },
     methods:{
     }

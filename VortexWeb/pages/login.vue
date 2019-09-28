@@ -48,13 +48,11 @@
                     </div>
 
                     <sui-button v-show="state != 'success'" type="submit" @click.prevent="loginWith(loginUser,{ login: email, password: password })" >Log in</sui-button>
-                   
+
                     <div class="ui success message">
                         <div class="header">Успешно</div>
-                        <p>Вы будете переноправлены в ваш кабинет</p>
+                        <p>Вы будете перенаправлены в ваш кабинет</p>
                     </div>
-
-                    
                 </sui-form>
             </div>
         </div>
@@ -81,7 +79,7 @@ export default {
     methods: {
         loginWith(func, args){
             this.state = 'loading'
-            
+
             func(args).then(()=>{
                 this.state = 'success'
                 this.$router.push(this.localePath('index'))
@@ -97,7 +95,6 @@ export default {
             loginWithGithub: 'user/loginWithGithub',
             loginWithMicrosoft: 'user/loginWithMicrosoft',
             loginUser: 'user/loginUser',
-            getProviderFunc: 'user/getProviderFunc',
             showToast:'notifications/showToast',
         }),
     },
@@ -105,24 +102,11 @@ export default {
         if (window.PasswordCredential || window.FederatedCredential) {
             navigator.credentials.get({
                 password: true,
-                // federated: {
-                //     providers: [
-                //         'https://google.com',
-                //         'https://microsoft.com',
-                //         'https://github.com',
-                //         'https://facebook.com',
-                //     ]
-                // },
-                // mediation: 'silent'
             }).then((credential) => {
                 if(credential){
                     switch (credential.type) {
                         case 'password':
                             this.loginWith(this.loginUser,{ login: credential.id, password: credential.password })
-                            break;
-                        case 'federated':
-                            var func = this.getProviderFunc(credential.provider)
-                            this.loginWith(func)
                             break;
                     }
                 }
