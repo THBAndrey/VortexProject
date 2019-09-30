@@ -11,9 +11,9 @@ export const mutations = {
 }
 
 export const actions = {
-    async loginUser({ dispatch, commit }, data){
-        return new Promise(async (resolve, reject) => {
-            await this.$fireAuth.signInWithEmailAndPassword(
+    loginUser({ dispatch, commit }, data){
+        return new Promise((resolve, reject) => {
+            this.$fireAuth.signInWithEmailAndPassword(
                 data.login,
                 data.password
             ).then(function(result) {
@@ -41,9 +41,10 @@ export const actions = {
         var provider = new this.$fireAuthObj.OAuthProvider('microsoft.com')
         return dispatch('loginPopup',provider)
     },
-    async loginPopup({ dispatch, commit }, provider){
-        return new Promise(async (resolve, reject) =>{
-            await this.$fireAuth.signInWithPopup(provider).then(function(result) {
+    loginPopup({ dispatch, commit }, provider){
+        return new Promise((resolve, reject) =>{
+            this.$fireAuth.signInWithPopup(provider)
+            .then(function(result) {
                 dispatch('loginSuccess',result)
                 resolve(result)
             }).catch(function(error) {
@@ -72,9 +73,9 @@ export const actions = {
         // var credential = error.credential;
         // // ...
     },
-    async createUser({ commit }, data){
-        return new Promise(async (resolve, reject) => {
-            await this.$fireAuth.createUserWithEmailAndPassword(
+    createUser({ commit }, data){
+        return new Promise((resolve, reject) => {
+            this.$fireAuth.createUserWithEmailAndPassword(
                 data.login,
                 data.password
             ).then(function(result) {
@@ -99,18 +100,19 @@ export const actions = {
         cookies.set('access_token', token)
         commit('setUser', userInfo)
     },
-    async logoutUser({ commit }){
-        await this.$fireAuth.signOut().then(function() {
+    logoutUser({ commit }){
+        this.$fireAuth.signOut()
+        .then(() => {
             // Sign-out successful.
-        }).catch(function(error) {
+        }).catch((error) => {
             // An error happened.
         });
         cookies.remove('access_token');
         commit('setUser', null)
     },
-    async updateUser({ commit }, user){
-        return new Promise(async (resolve, reject) => {
-            await this.$fireAuth.currentUser.updateProfile({
+    updateUser({ commit }, user){
+        return new Promise((resolve, reject) => {
+            this.$fireAuth.currentUser.updateProfile({
                 displayName: user.name,
                 photoURL: user.avatar
             }).then(function(result) {

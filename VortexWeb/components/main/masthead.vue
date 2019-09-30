@@ -14,16 +14,17 @@
             <sui-menu-item class="hidden md:flex" :active="$route.fullPath === localePath('desc')"> <n-link :to="localePath('desc')">API</n-link> </sui-menu-item>
             <sui-menu-item class="hidden md:flex" :active="$route.fullPath === localePath('about')"> <n-link :to="localePath('about')">About</n-link> </sui-menu-item>
             <sui-menu-item position="right">
-            <sui-dropdown :text="$t('lang')" class="inverted" button secondary>
-                <sui-dropdown-menu>
-                    <n-link tag="sui-dropdown-item" v-for="locale in availableLocales" :key="locale.code" class="text-dark" :to="switchLocalePath(locale.code)">
-                        <sui-flag :name="locale.flag" />{{ locale.name }}
-                    </n-link>
-                </sui-dropdown-menu>
-            </sui-dropdown>
-            <n-link class="hidden md:flex ml-2" :to="currentUser ? localePath('cabinet-profile') : localePath('login')">
-                <sui-button inverted>{{ currentUser ? currentUser.email : $t('login') }}</sui-button>
-            </n-link>
+                <sui-button inverted><i class="fa fa-bell-o" aria-hidden="true"></i></sui-button>
+                <sui-dropdown :text="$t('lang')" class="ml-2 inverted" button secondary>
+                    <sui-dropdown-menu>
+                        <n-link tag="sui-dropdown-item" v-for="locale in availableLocales" :key="locale.code" class="text-dark" :to="switchLocalePath(locale.code)">
+                            <sui-flag :name="locale.flag" />{{ locale.name }}
+                        </n-link>
+                    </sui-dropdown-menu>
+                </sui-dropdown>
+                <n-link class="hidden md:flex ml-2" :to="currentUser ? localePath('cabinet-profile') : localePath('login')">
+                    <sui-button inverted>{{ currentUser ? currentUser.email : $t('login') }}</sui-button>
+                </n-link>
             </sui-menu-item>
         </sui-menu>
 

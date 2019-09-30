@@ -9,8 +9,8 @@ namespace VortexCore.Services
 {
     public class FirebaseControl
     {
-        public static FirebaseApp firebaseApp { get; set; }
-        public static FirebaseMessaging messaging { get; set; }
+        public static FirebaseApp FirebaseApp { get; set; }
+        public static FirebaseMessaging Messaging { get; set; }
 
         public static async Task SendMessage()
         {
@@ -24,16 +24,16 @@ namespace VortexCore.Services
                 Data = messageData,
                 Token = "fGAB6Qdn13A:APA91bFx12LswYRDAz2Awsfm1ek5aqc7VrybMpBveAKYEXxnPMUIaUB0PQaRHiapTNIhevisWWBinrrS6f7SVzUgXRF4frrs2XCn4d2clPBTqKwd8wVoDc8loi7vSxfdVcPCjSO8Bos4"
             };
-            await messaging.SendAsync(message);
+            await Messaging.SendAsync(message);
         }
 
         public FirebaseControl()
         {
-            firebaseApp = FirebaseApp.Create(new AppOptions()
+            FirebaseApp = FirebaseApp.Create(new AppOptions()
             {
                 Credential = GoogleCredential.FromFile("FireBaseCredential.json"),
             });
-            messaging = FirebaseMessaging.GetMessaging(firebaseApp);
+            Messaging = FirebaseMessaging.GetMessaging(FirebaseApp);
         }
     }
 }
