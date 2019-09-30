@@ -45,6 +45,14 @@
               "target": "Package",
               "version": "[1.9.0, )"
             },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.0.0-rc1.19456.14, )"
@@ -61,7 +69,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.0.0-rc1-19462-10, )"
+              "version": "[3.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

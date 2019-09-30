@@ -107,7 +107,6 @@ E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreap
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\FireBaseCredential.json
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\FirebaseAdmin.dll
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Google.Api.Gax.dll
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Google.Api.Gax.Rest.dll
@@ -116,4 +115,11 @@ E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreap
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Google.Apis.Auth.dll
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Google.Apis.Core.dll
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\System.Interactive.Async.dll
-E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\obj\Debug\netcoreapp3.0\VortexCore.MvcApplicationPartsAssemblyInfo.cache
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\FireBaseCredential.json
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.dll
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
