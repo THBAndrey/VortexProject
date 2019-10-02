@@ -123,3 +123,4 @@ E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreap
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
 E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
+E:\GitHub\VortexProject\VortexApi\VortexCore\WebApplication1\obj\Debug\netcoreapp3.0\VortexCore.MvcApplicationPartsAssemblyInfo.cache
