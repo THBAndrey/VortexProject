@@ -20,6 +20,13 @@ module.exports = {
   css: [
     '~/assets/css/global.css'
   ],
+  // styleResources: {
+  //   less: [
+  //     '/assets/less/colors.less',
+  //     '/assets/less/dark-colors.less',
+  //     '/assets/less/variables.less'
+  //   ]
+  // },
   // cache: true,
   modules: [
     //'bootstrap-vue/nuxt',

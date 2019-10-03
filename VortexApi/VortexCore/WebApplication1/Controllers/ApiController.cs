@@ -9,6 +9,7 @@ using VortexCore.Services;
 using VortexCore.ManagersDB;
 using VortexCore.ModelsDB;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace VortexCore.Controllers
 {
@@ -62,6 +63,14 @@ namespace VortexCore.Controllers
         {
             var user = User.Claims;
             return new JsonResult("SecureResource");
+        }
+
+        [Authorize]
+        public async Task<ActionResult> SetRole(string role)
+        {
+            var user = User.Claims.ToDictionary(x => x.Type, x => x.Value);
+            await FirebaseAdmin.Auth.FirebaseAuth.DefaultInstance.SetCustomUserClaimsAsync(user["user_id"], new Dictionary<string, object>() { { ClaimTypes.Role, role } });
+            return new OkResult();
         }
     }
 }

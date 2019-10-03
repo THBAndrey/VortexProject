@@ -55,7 +55,7 @@ namespace VortexCore
                             ValidateAudience = true,
                             ValidAudience = Configuration["FirebaseAppId"],
                             ValidateLifetime = true,
-                            //NameClaimType = 
+                            NameClaimType = "name"
                         };
                         //            options.Events = new JwtBearerEvents
                         //            {

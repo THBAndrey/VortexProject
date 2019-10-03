@@ -1,7 +1,7 @@
 <template>
     <div class="h-full w-full">
         <div class="h-full label-container flex items-center justify-center">
-            <div style="width:400px;">
+            <div>
                 <span class="text-6xl text-white font-black leading-tight">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
                 <div class="mt-8">
                     <span class="text-lg text-white leading-relaxed">Corrupti porro odit voluptatibus, unde sint a consequuntur tempora tempore quisquam dolor architecto! Dolorem, enim.</span>
@@ -9,8 +9,8 @@
             </div>
         </div>
         <div class="h-full form-container bg-white">
-            <div class="action-form w-full h-full p-32">
-                <n-link tag="div" class="flex cursor-pointer items-center header-nav-logo mb-32" :to="localePath('index')">
+            <div class="action-form w-full h-full">
+                <n-link tag="div" class="flex cursor-pointer items-center header-nav-logo" :to="localePath('index')">
                     <span class="header-logo mr-2"></span>
                     <span class="text-4xl font-black">Vortex</span>
                 </n-link>
@@ -123,6 +123,7 @@ export default {
 @import '../assets/less/variables.less';
 
 @form-container-width: 550px;
+@label-container-width: 400px;
 @transition-time: .7s;
 @transition: transform @transition-time ease-in-out;
 
@@ -139,6 +140,9 @@ export default {
     position: absolute;
     transition: @transition;
     left: 0;
+    & > div{
+        width: @label-container-width;
+    }
 }
 
 .header-logo{
@@ -151,8 +155,46 @@ export default {
     background: #000 !important;
 }
 
+.header-nav-logo{
+    margin-bottom: 8rem;
+}
+
 .header-nav-logo:hover > .header-logo{
     transform: rotate(360deg);
+}
+
+.action-form{
+    padding: 8rem;
+}
+
+@media (max-width: calc( @form-container-width + @label-container-width )) {
+    .action-form{
+        padding:  4rem;
+    }
+
+    .form-container{
+        width: 400px;
+    }
+
+    .label-container{
+        width: calc(100vw - 400px);
+    }
+}
+
+@media (max-width: 850px) {
+
+    .form-container{
+        width: 100%;
+    }
+
+    .action-form{
+        padding: 2rem;
+    }
+
+    .label-container{
+        display: none !important;
+    }
+
 }
 
 </style>
