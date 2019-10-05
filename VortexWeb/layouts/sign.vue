@@ -21,8 +21,6 @@ export default {
 
 <style lang="less" scoped>
 
-@import '../assets/less/colors.less';
-
 .particles{
   position: absolute;
   width: 100%;

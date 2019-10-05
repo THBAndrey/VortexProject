@@ -13,7 +13,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../assets/less/colors.less';
 
 footer{
     height: 300px;
@@ -25,8 +24,6 @@ footer{
 
 
 <style lang="less" scoped>
-
-@import '../../assets/less/dark-colors.less';
 
 footer.dark{
     background-color: @secondary-green-dark !important;

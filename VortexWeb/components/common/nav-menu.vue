@@ -52,8 +52,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../assets/less/colors';
-@import '../../assets/less/dark-colors';
 
 @menu-height: 50px;
 

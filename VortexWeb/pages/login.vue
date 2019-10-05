@@ -118,10 +118,6 @@ export default {
 
 <style lang="less" scoped>
 
-
-@import '../assets/less/colors.less';
-@import '../assets/less/variables.less';
-
 @form-container-width: 550px;
 @label-container-width: 400px;
 @transition-time: .7s;
@@ -167,7 +163,7 @@ export default {
     padding: 8rem;
 }
 
-@media (max-width: calc( @form-container-width + @label-container-width )) {
+@media (max-width: 1024px) {
     .action-form{
         padding:  4rem;
     }

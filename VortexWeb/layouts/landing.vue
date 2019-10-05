@@ -51,8 +51,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../assets/less/variables.less';
-@import '../assets/less/colors.less';
 
 main{
     // padding-top: @landing-header-height;
@@ -68,8 +66,6 @@ main{
 </style>
 
 <style lang="less" scoped>
-@import '../assets/less/dark-colors.less';
-
 main.dark{
     background-color: @body-background-dark;
     color: @parts-text-color-dark;
