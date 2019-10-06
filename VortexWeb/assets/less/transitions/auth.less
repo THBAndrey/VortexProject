@@ -1,0 +1,108 @@
+@animation-duration: 1s;
+@animation-duration-cuted: 0s;
+@animation-type-left: left-auth-out;
+@animation-type-right: right-auth-out;
+@form-fade-in-duration: .3s;
+@fill-mode: forwards;
+
+.leftauth-leave-active {
+    animation-duration: @animation-duration;
+
+    > .form-container {
+        animation: @animation-type-left @animation-duration;
+        animation-fill-mode: @fill-mode;
+    }
+
+    > .label-container {
+        animation: @animation-type-right @animation-duration;
+        animation-fill-mode: @fill-mode;
+    }
+
+    .action-form {
+        animation: @animation-type-right @animation-duration;
+        animation-fill-mode: @fill-mode;
+    }
+}
+
+.leftauth-enter-active .action-form {
+    animation: auth-action-form-in @form-fade-in-duration;
+    animation-fill-mode: @fill-mode;
+}
+
+.rightauth-leave-active {
+    animation-duration: @animation-duration;
+
+    > .form-container {
+        animation: @animation-type-right @animation-duration;
+        animation-fill-mode: @fill-mode;
+    }
+
+    > .label-container {
+        animation: @animation-type-left @animation-duration;
+        animation-fill-mode: @fill-mode;
+    }
+
+    .action-form {
+        animation: @animation-type-left @animation-duration;
+        animation-fill-mode: @fill-mode;
+    }
+}
+
+.rightauth-enter-active .action-form {
+    animation: auth-action-form-in @form-fade-in-duration;
+    animation-fill-mode: @fill-mode;
+}
+
+@keyframes auth-action-form-in {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+
+@keyframes left-auth-out {
+    0% { opacity: translateX( 0 ); }
+    100% { transform: translateX( calc( -100vw + 100% ) ); }
+}
+
+@keyframes right-auth-out {
+    0% { transform: translateX( 0vw ); }
+    100% { transform: translateX( calc( 100vw - 100% ) ); }
+}
+
+@media (max-width: 850px) {
+    .leftauth-leave-active {
+        animation-duration: @animation-duration-cuted;
+
+        > .form-container {
+            animation: none;
+            animation-fill-mode: @fill-mode;
+        }
+
+        > .label-container {
+            animation: none;
+            animation-fill-mode: @fill-mode;
+        }
+
+        .action-form {
+            animation: none;
+            animation-fill-mode: @fill-mode;
+        }
+    }
+    .rightauth-leave-active {
+        animation-duration: @animation-duration-cuted;
+
+        > .form-container {
+            animation: none;
+            animation-fill-mode: @fill-mode;
+        }
+
+        > .label-container {
+            animation: none;
+            animation-fill-mode: @fill-mode;
+        }
+
+        .action-form {
+            animation: none;
+            animation-fill-mode: @fill-mode;
+        }
+    }
+}

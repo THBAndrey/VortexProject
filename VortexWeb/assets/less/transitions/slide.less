@@ -1,0 +1,16 @@
+.slide-enter-active {
+    animation: slide-in .3s;
+}
+.slide-leave-active {
+    animation: slide-out .3s;
+}
+@keyframes slide-in {
+    0% { transform: translateX(100%) }
+    /* 50% { transform: scale(1.5) } */
+    100% { transform: translateX(0%) }
+}
+@keyframes slide-out {
+    0% { transform: translateX(0%) }
+    /* 50% { transform: scale(1.5) } */
+    100% { transform: translateX(-100%) }
+}

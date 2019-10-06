@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="h-full form-container bg-white">
-            <div class="action-form w-full h-full">
+            <div class="action-form w-full">
                 <n-link tag="div" class="flex cursor-pointer items-center header-nav-logo" :to="localePath('index')">
                     <span class="header-logo mr-2"></span>
                     <span class="text-4xl font-black">Vortex</span>
@@ -25,10 +25,6 @@
                         <sui-icon name="facebook f" class="link" @click="loginWith(loginWithFacebook)" size="big" circular />
                         <sui-icon name="github" class="link" @click="loginWith(loginWithGithub)" size="big" circular />
                         <sui-icon name="microsoft" class="link" @click="loginWith(loginWithMicrosoft)" size="big" circular />
-                        <!-- <sui-button type="button" @click="loginWith(loginWithGoogle)" >Google</sui-button> -->
-                        <!-- <sui-button type="button" positive @click="loginWith(loginWithFacebook)" >Facebook</sui-button> -->
-                        <!-- <sui-button type="button" @click="loginWith(loginWithGithub)" >GitHub</sui-button> -->
-                        <!-- <sui-button type="button" @click="loginWith(loginWithMicrosoft)" >Microsoft</sui-button> -->
                     </div>
 
                     <sui-divider class="mt-8" horizontal>or use your email</sui-divider>

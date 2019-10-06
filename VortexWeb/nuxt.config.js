@@ -18,7 +18,8 @@ module.exports = {
   },
   loading: { color: '#3B8070' },
   css: [
-    '~/assets/css/global.css'
+    '~assets/css/global.css',
+    '~assets/less/transitions.less'
   ],
   styleResources: {
     less: [
