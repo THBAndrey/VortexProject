@@ -114,7 +114,8 @@ export const actions = {
         return new Promise((resolve, reject) => {
             this.$fireAuth.currentUser.updateProfile({
                 displayName: user.name,
-                photoURL: user.avatar
+                photoURL: user.avatar,
+                role: user.role
             }).then(function(result) {
                 // dispatch('updateUserSuccess',result)
                 resolve(result)

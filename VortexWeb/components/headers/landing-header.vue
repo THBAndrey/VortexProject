@@ -39,9 +39,6 @@ export default {
 
 <style lang="less" scoped>
 
-@import '../../assets/less/colors.less';
-@import '../../assets/less/variables.less';
-
 nav{
     position: fixed;
     height: @landing-header-height;
@@ -77,8 +74,6 @@ nav{
 </style>
 
 <style lang="less" scoped>
-
-@import '../../assets/less/dark-colors.less';
 
 nav.dark{
     background-color: @primary-green-dark !important;

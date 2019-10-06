@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,6 +19,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using VortexCore.ManagersDB;
 using VortexCore.ModelsDB;
+using VortexCore.Services.Authentication;
 
 namespace VortexCore
 {
@@ -35,6 +39,11 @@ namespace VortexCore
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
 
+            //services.AddAuthentication(FirebaseAuthenticationOptions.Scheme)
+            //    .AddScheme<FirebaseAuthenticationOptions, FirebaseAuthenticationHandler>(FirebaseAuthenticationOptions.Scheme, options =>
+            //    {
+            //        /* configure options */
+            //    });
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>
                     {
@@ -45,8 +54,28 @@ namespace VortexCore
                             ValidIssuer = "https://securetoken.google.com/" + Configuration["FirebaseAppId"],
                             ValidateAudience = true,
                             ValidAudience = Configuration["FirebaseAppId"],
-                            ValidateLifetime = true
+                            ValidateLifetime = true,
+                            NameClaimType = "name"
                         };
+                        //            options.Events = new JwtBearerEvents
+                        //            {
+                        //                OnMessageReceived = async (context) =>
+                        //                {
+                        //                    try
+                        //                    {
+
+                        //                    }
+                        //                    catch (Exception ex)
+                        //                    {
+                        //                        context.Fail(ex);
+                        //                    }
+
+
+
+                        //                    var ctx = context;
+                        //                }
+                        //            };
+
                     });
         }
 

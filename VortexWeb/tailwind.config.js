@@ -51,6 +51,6 @@ module.exports = {
       }
     }
   },
-  variants: {},
-  plugins: []
+  variants: ["responsive", "group-hover", "hover", "focus", "active"],
+  // plugins: []
 }

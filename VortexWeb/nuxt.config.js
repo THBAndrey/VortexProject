@@ -18,14 +18,21 @@ module.exports = {
   },
   loading: { color: '#3B8070' },
   css: [
-    '~/assets/css/global.css'
+    '~assets/css/global.css',
+    '~assets/less/transitions.less'
   ],
+  styleResources: {
+    less: [
+      '~/assets/less/colors.less',
+      '~/assets/less/dark-colors.less',
+      '~/assets/less/variables.less'
+    ]
+  },
   // cache: true,
   modules: [
-    //'bootstrap-vue/nuxt',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/style-resources',
     'semantic-ui-vue/nuxt',
-    //'nuxt-vuikit',
     'cookie-universal-nuxt',
     'nuxt-i18n',
     ['@nuxtjs/pwa', { }],

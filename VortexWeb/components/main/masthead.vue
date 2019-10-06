@@ -50,9 +50,6 @@ export default {
 
 <style lang="less" scoped>
 
-@import '../../assets/less/colors.less';
-@import '../../assets/less/variables.less';
-
 .header-logo{
     mask: url(~static/vortex.svg);
     display: inline-block;

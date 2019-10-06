@@ -1,16 +1,16 @@
 <template>
-    <div class="h-full w-full">
+    <div class="h-full w-full" :class="`${theme}-theme`">
         <div class="h-full label-container flex items-center justify-center">
-            <div style="width:400px;">
+            <div>
                 <span class="text-6xl text-white font-black leading-tight">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
                 <div class="mt-8">
                     <span class="text-lg text-white leading-relaxed">Corrupti porro odit voluptatibus, unde sint a consequuntur tempora tempore quisquam dolor architecto! Dolorem, enim.</span>
                 </div>
             </div>
         </div>
-        <div class="h-full form-container bg-white">
-            <div class="action-form w-full h-full p-32">
-                <n-link tag="div" class="flex cursor-pointer items-center header-nav-logo mb-32" :to="localePath('index')">
+        <div class="h-full form-container">
+            <div class="action-form w-full">
+                <n-link tag="div" class="flex cursor-pointer items-center header-nav-logo" :to="localePath('index')">
                     <span class="header-logo mr-2"></span>
                     <span class="text-4xl font-black">Vortex</span>
                 </n-link>
@@ -25,10 +25,6 @@
                         <sui-icon name="facebook f" class="link" @click="loginWith(loginWithFacebook)" size="big" circular />
                         <sui-icon name="github" class="link" @click="loginWith(loginWithGithub)" size="big" circular />
                         <sui-icon name="microsoft" class="link" @click="loginWith(loginWithMicrosoft)" size="big" circular />
-                        <!-- <sui-button type="button" @click="loginWith(loginWithGoogle)" >Google</sui-button> -->
-                        <!-- <sui-button type="button" positive @click="loginWith(loginWithFacebook)" >Facebook</sui-button> -->
-                        <!-- <sui-button type="button" @click="loginWith(loginWithGithub)" >GitHub</sui-button> -->
-                        <!-- <sui-button type="button" @click="loginWith(loginWithMicrosoft)" >Microsoft</sui-button> -->
                     </div>
 
                     <sui-divider class="mt-8" horizontal>or use your email</sui-divider>
@@ -60,7 +56,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
     name: 'Login',
@@ -75,6 +71,11 @@ export default {
             error: null,
             state: null,
         }
+    },
+    computed: {
+        ...mapState({
+            theme: state => state.themes.currentTheme
+        })
     },
     methods: {
         loginWith(func, args){
@@ -117,42 +118,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+    .form-container{
+        right: 0;
+    }
 
-
-@import '../assets/less/colors.less';
-@import '../assets/less/variables.less';
-
-@form-container-width: 550px;
-@transition-time: .7s;
-@transition: transform @transition-time ease-in-out;
-
-.form-container{
-    width: @form-container-width;
-    position: absolute;
-    transition: @transition;
-    right: 0;
-    overflow-x: hidden;
-}
-
-.label-container{
-    width: calc(100vw - @form-container-width);
-    position: absolute;
-    transition: @transition;
-    left: 0;
-}
-
-.header-logo{
-    mask: url(~static/vortex.svg);
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    mask-size: contain;
-    transition: 1s;
-    background: #000 !important;
-}
-
-.header-nav-logo:hover > .header-logo{
-    transform: rotate(360deg);
-}
-
+    .label-container{
+        left: 0;
+    }
 </style>

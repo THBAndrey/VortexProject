@@ -20,9 +20,4 @@ export default {
 
 <style lang="less" scoped>
 
-@import '../../assets/less/colors.less';
-@import '../../assets/less/variables.less';
-
-
-
 </style>

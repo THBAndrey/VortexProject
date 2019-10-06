@@ -1,16 +1,16 @@
 <template>
     <div class="h-full w-full">
         <div class="h-full label-container flex items-center justify-center">
-            <div style="width:400px;">
+            <div>
                 <span class="text-6xl text-white font-black leading-tight">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
                 <div class="mt-8">
                     <span class="text-lg text-white leading-relaxed">Corrupti porro odit voluptatibus, unde sint a consequuntur tempora tempore quisquam dolor architecto! Dolorem, enim.</span>
                 </div>
             </div>
         </div>
-        <div class="h-full form-container bg-white">
-            <div class="action-form w-full h-full p-32">
-                <n-link tag="div" class="flex cursor-pointer items-center header-nav-logo mb-32" :to="localePath('index')">
+        <div class="h-full form-container">
+            <div class="action-form w-full">
+                <n-link tag="div" class="flex cursor-pointer items-center header-nav-logo" :to="localePath('index')">
                     <span class="header-logo mr-2"></span>
                     <span class="text-4xl font-black">Vortex</span>
                 </n-link>
@@ -87,7 +87,7 @@ export default {
             loginWithGoogle: 'user/loginWithGoogle',
             loginWithFacebook: 'user/loginWithFacebook',
             loginWithGithub: 'user/loginWithGithub',
-            loginWithMicrosoft: 'user/loginWithMicrosoft',  
+            loginWithMicrosoft: 'user/loginWithMicrosoft',
         }),
         registerWith(func, args){
             this.state = 'loading'
@@ -133,38 +133,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+    .form-container{
+        left: 0;
+    }
 
-@form-container-width: 550px;
-@transition-time: .7s;
-@transition: transform @transition-time ease-in-out;
-
-.form-container{
-    width: @form-container-width;
-    position: absolute;
-    transition: @transition;
-    left: 0;
-    overflow-x: hidden;
-}
-
-.label-container{
-    width: calc(100vw - @form-container-width);
-    position: absolute;
-    transition: @transition;
-    right: 0;
-}
-
-.header-logo{
-    mask: url(~static/vortex.svg);
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    mask-size: contain;
-    transition: 1s;
-    background: #000 !important;
-}
-
-.header-nav-logo:hover > .header-logo{
-    transform: rotate(360deg);
-}
-
+    .label-container{
+        right: 0;
+    }
 </style>

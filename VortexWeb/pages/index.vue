@@ -48,7 +48,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../assets/less/colors.less';
 
 #index-container{
   color: @text-color;
@@ -79,7 +78,6 @@ export default {
 </style>
 
 <style lang="less" scoped>
-@import '../assets/less/dark-colors.less';
 
 #index-container.dark{
   color: @text-color-dark;
