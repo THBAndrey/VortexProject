@@ -1,6 +1,25 @@
 <template>
-  <div>
-      <sui-button>Show Modal</sui-button>
+  <div class="container py-5">
+    <div class="flex flex-wrap -mx-2">
+      <div class="w-2/3 p-2">
+        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+      </div>
+      <div class="w-1/3 p-2">
+        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+      </div>
+      <div class="w-1/3 p-2">
+        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+      </div>
+      <div class="w-1/3 p-2">
+        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+      </div>
+      <div class="w-1/3 p-2">
+        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+      </div>
+      <div class="w-full p-2">
+        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,11 +69,8 @@ export default {
   padding-top: 15px;
 }
 
-</style>
-
-<style lang="less" scoped>
-
-#index-container.dark{
-  color: @text-color-dark;
+.news-card{
+  height: 400px;
 }
+
 </style>
