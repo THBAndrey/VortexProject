@@ -23,7 +23,7 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
   name: "Main",
-  transition: 'slide',
+  // transition: 'slide',
   layout: 'landing',
   data(){
     return{

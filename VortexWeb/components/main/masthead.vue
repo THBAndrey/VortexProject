@@ -9,10 +9,10 @@
                     <span class="text-3xl">Vortex</span>
                 </n-link>
             </sui-menu-item>
-            <sui-menu-item class="hidden md:flex" :active="$route.fullPath === localePath('index')"><n-link :to="localePath('index')">Main</n-link></sui-menu-item>
-            <sui-menu-item class="hidden md:flex" :active="$route.fullPath === localePath('news')"> <n-link :to="localePath('news')">News</n-link> </sui-menu-item>
-            <sui-menu-item class="hidden md:flex" :active="$route.fullPath === localePath('desc')"> <n-link :to="localePath('desc')">API</n-link> </sui-menu-item>
-            <sui-menu-item class="hidden md:flex" :active="$route.fullPath === localePath('about')"> <n-link :to="localePath('about')">About</n-link> </sui-menu-item>
+            <sui-menu-item class="hidden md:flex" :active="$nuxt.$route.fullPath === localePath('index')"><n-link :to="localePath('index')">Main</n-link></sui-menu-item>
+            <sui-menu-item class="hidden md:flex" :active="$nuxt.$route.fullPath === localePath('news')"> <n-link :to="localePath('news')">News</n-link> </sui-menu-item>
+            <sui-menu-item class="hidden md:flex" :active="$nuxt.$route.fullPath === localePath('desc')"> <n-link :to="localePath('desc')">API</n-link> </sui-menu-item>
+            <sui-menu-item class="hidden md:flex" :active="$nuxt.$route.fullPath === localePath('about')"> <n-link :to="localePath('about')">About</n-link> </sui-menu-item>
             <sui-menu-item position="right">
                 <sui-button inverted><i class="fa fa-bell-o" aria-hidden="true"></i></sui-button>
                 <sui-dropdown :text="$t('lang')" class="ml-2 inverted" button secondary>
@@ -22,9 +22,7 @@
                         </n-link>
                     </sui-dropdown-menu>
                 </sui-dropdown>
-                <n-link class="hidden md:flex ml-2" :to="currentUser ? localePath('cabinet-profile') : localePath('login')">
-                    <sui-button inverted>{{ currentUser ? currentUser.email : $t('login') }}</sui-button>
-                </n-link>
+                <sui-button @click="$nuxt.$router.push(currentUser ? localePath('cabinet-profile') : localePath('login'))" class="hidden md:flex ml-2" inverted>{{ currentUser ? currentUser.email : $t('login') }}</sui-button>
             </sui-menu-item>
         </sui-menu>
 

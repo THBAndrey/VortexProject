@@ -16,7 +16,7 @@
                 </n-link>
                 <div class="mb-8">
                     <span class="text-3xl font-medium mr-5">Login</span>
-                    <nuxt-link :to="localePath('signup')" class="text-lg text-gray-600 mr-5">SignUp</nuxt-link>
+                    <nuxt-link tag="span" :to="localePath('signup')" class="cursor-pointer text-lg text-gray-600 mr-5">SignUp</nuxt-link>
                 </div>
                 <sui-form :state="state">
 
@@ -44,6 +44,7 @@
                     </div>
 
                     <sui-button v-show="state != 'success'" type="submit" @click.prevent="loginWith(loginUser,{ login: email, password: password })" >Log in</sui-button>
+                    <span class="ml-2 text-gray-600">Forget password</span>
 
                     <div class="ui success message">
                         <div class="header">Успешно</div>
@@ -83,7 +84,7 @@ export default {
 
             func(args).then(()=>{
                 this.state = 'success'
-                this.$router.push(this.localePath('index'))
+                this.$nuxt.$router.push(this.localePath('index'))
             })
             .catch((error)=>{
                 this.error = error.message

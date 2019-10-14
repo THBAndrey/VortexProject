@@ -16,7 +16,7 @@
                 </n-link>
                 <div class="mb-8">
                     <span class="text-3xl font-medium mr-5">SignUp</span>
-                    <nuxt-link :to="localePath('login')" class="text-lg text-gray-600 mr-5">Login</nuxt-link>
+                    <nuxt-link tag="span" :to="localePath('login')" class="cursor-pointer text-lg text-gray-600 mr-5">Login</nuxt-link>
                 </div>
                 <sui-form :state="state">
 
@@ -42,7 +42,7 @@
                         <input placeholder="Name" v-model="name" >
                     </sui-form-field>
                     <sui-form-field>
-                        <sui-checkbox label="I agree to the Terms and Conditions" />
+                        <sui-checkbox v-model="agree" label="I agree to the Terms and Conditions" />
                     </sui-form-field>
 
                     <div class="ui error message">
@@ -50,7 +50,7 @@
                         <p>{{ error }}</p>
                     </div>
 
-                    <sui-button v-show="state != 'success'" type="submit" @click.prevent="registerWith(createUser,{ login: email, password: password, name: name })" >Sign up</sui-button>
+                    <sui-button :disabled="!agree" v-show="state != 'success'" type="submit" @click.prevent="registerWith(createUser,{ login: email, password: password, name: name })" >Sign up</sui-button>
 
                     <div class="ui success message">
                         <div class="header">Успешно</div>
@@ -79,6 +79,7 @@ export default {
             error: null,
             name: null,
             state: null,
+            agree: false,
         }
     },
     methods:{
@@ -118,7 +119,7 @@ export default {
                 });
 
 
-                this.$router.push(this.localePath('index'))
+                this.$nuxt.$router.push(this.localePath('index'))
             })
             .catch((error)=>{
                 this.error = error.message

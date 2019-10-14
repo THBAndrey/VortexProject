@@ -26,8 +26,8 @@
     "jwt-decode": "^2.2.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
-    "nuxt": "^2.10.0",
-    "nuxt-fire": "^2.0.1",
+    "nuxt": "^2.10.1",
+    "nuxt-fire": "^2.1.0",
     "nuxt-i18n": "^6.3.0",
     "nuxt-izitoast": "^1.0.0",
     "semantic-ui-css": "^2.4.1",
@@ -35,9 +35,9 @@
     "vue-particles": "^1.0.9"
   },
   "devDependencies": {
-    "@babel/runtime-corejs2": "^7.6.2",
+    "@babel/runtime-corejs2": "^7.6.3",
     "babel-eslint": "^10.0.1",
-    "core-js": "^2.6.9",
+    "core-js": "^2.6.10",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
