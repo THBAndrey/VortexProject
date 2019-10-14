@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import LandingHeader from '~/components/headers/landing-header'
 import LandingFooter from '~/components/footers/landing-footer'
 import MastHead from '~/components/main/masthead'
 import NavMenu from '~/components/common/nav-menu'
@@ -28,7 +27,6 @@ import NavMenu from '~/components/common/nav-menu'
 import { mapMutations, mapActions, mapState } from 'vuex'
 export default {
     components:{
-        LandingHeader,
         LandingFooter,
         MastHead,
         NavMenu

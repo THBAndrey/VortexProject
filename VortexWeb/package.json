@@ -20,7 +20,7 @@
     "@nuxtjs/tailwindcss": "^1.1.1",
     "cookie-universal-nuxt": "^2.0.18",
     "cookieparser": "^0.1.0",
-    "firebase": "^6.6.2",
+    "firebase": "^7.2.0",
     "jquery": "^3.4.1",
     "js-cookie": "^2.2.0",
     "jwt-decode": "^2.2.0",
@@ -38,10 +38,10 @@
     "@babel/runtime-corejs2": "^7.6.3",
     "babel-eslint": "^10.0.1",
     "core-js": "^2.6.10",
-    "eslint": "^4.19.1",
+    "eslint": "^6.5.1",
     "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-vue": "^4.0.0"
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-vue": "^5.2.3"
   },
   "optionalDependencies": {
     "fsevents": "*"
