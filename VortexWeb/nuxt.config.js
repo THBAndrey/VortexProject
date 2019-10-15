@@ -69,6 +69,7 @@ module.exports = {
           }
         },
         // The following options are optional:
+        useOnly: ['auth', 'messaging'],
         // useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
         // customEnv: false,
         // functionsLocation: 'us-central1',

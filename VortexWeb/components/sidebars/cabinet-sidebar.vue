@@ -39,7 +39,7 @@ export default {
         margin-bottom: 10px;
         right: 0;
         pointer-events: none;
-        transition: top .3s;
+        transition: .2s;
     }
 
     .sidebar-item{

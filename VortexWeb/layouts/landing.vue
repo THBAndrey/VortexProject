@@ -1,9 +1,14 @@
 <template>
-  <div>
+  <div :class="theme">
     <nav-menu>
       <div slot="content">
-        <mast-head></mast-head>
-        <main :class="theme">
+        <mast-head :links="[
+          { title: 'Main', route: 'index' },
+          { title: 'News', route: 'news' },
+          { title: 'API', route: 'desc' },
+          { title: 'About', route: 'about' },
+        ]"/>
+        <main>
             <nuxt/>
         </main>
         <landing-footer/>
@@ -64,8 +69,11 @@ main{
 </style>
 
 <style lang="less" scoped>
-main.dark{
-    background-color: @body-background-dark;
-    color: @parts-text-color-dark;
+.dark{
+  main{
+      background-color: @body-background-dark;
+      color: @parts-text-color-dark;
+  }
 }
+
 </style>
