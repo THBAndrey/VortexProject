@@ -10,3 +10,12 @@ html, body{
     margin-bottom: .2em;
     margin-top: .2em;
 }
+
+.vortex-icon{
+    mask: url(~static/vortex.svg);
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    mask-size: contain;
+    background: currentColor;
+}

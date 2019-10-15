@@ -3,7 +3,7 @@
         <div :style="acticeItemIndex >= 0 ? `top: ${54 * acticeItemIndex}px` : 'display: none'" class="arrow"></div>
         <n-link v-for="(item, index) in items" :key="index" tag="div" :to="localePath(item.route)" class="sidebar-item" :class="$route.fullPath == localePath(item.route) ? 'active' : ''">
             <sui-icon size="large" :name="item.icon"/>
-            <span>{{ item.title }}</span>
+            <span class="hidden md:block">{{ item.title }}</span>
         </n-link>
     </div>
 </template>

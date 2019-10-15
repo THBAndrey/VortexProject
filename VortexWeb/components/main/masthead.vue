@@ -16,12 +16,12 @@
                     </sui-dropdown-menu>
                 </sui-dropdown>
             </sui-menu-item>
-            <div ref="arrow" :style="arrowLeftOffset > 0 ? `left: ${arrowLeftOffset}px` : 'visibility: hidden;'" class="arrow"></div>
+            <div ref="arrow" :style="arrowLeftOffset > 0 ? `left: ${arrowLeftOffset}px` : 'visibility: hidden;'" class="arrow hidden md:block"></div>
             <sui-menu-item v-for="(item, index) in links" :ref="`link${index}`" :key="index" class="hidden md:flex"><n-link :to="localePath(item.route)">{{ item.title }}</n-link></sui-menu-item>
             <!--  :active="$nuxt.$route.fullPath === localePath(item.route)" -->
             <sui-menu-item position="right">
                 <sui-button inverted><i class="fa fa-bell-o" aria-hidden="true"></i></sui-button>
-                <sui-button @click="$nuxt.$router.push(currentUser ? localePath('cabinet-profile') : localePath('login'))" class="hidden md:flex ml-2" inverted>{{ currentUser ? currentUser.email : $t('login') }}</sui-button>
+                <sui-button @click="$nuxt.$router.push(currentUser ? localePath('cabinet-profile') : localePath('login'))" class="hidden md:flex ml-2" inverted>{{ currentUser ? /*currentUser.email*/ 'Cabinet' : $t('login') }}</sui-button>
             </sui-menu-item>
         </sui-menu>
 

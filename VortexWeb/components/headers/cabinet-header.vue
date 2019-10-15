@@ -1,7 +1,5 @@
 <template>
     <div class="ui inverted center aligned segment m-0 rounded-none bg-gray-900">
-
-
         <sui-menu secondary inverted class="mb-0" >
             <sui-menu-item>
                 <n-link class="flex items-center header-nav-logo" :to="localePath('index')">
@@ -16,7 +14,7 @@
                     </sui-dropdown-menu>
                 </sui-dropdown>
             </sui-menu-item>
-            <sui-menu-item position="right">
+            <sui-menu-item class="hidden md:flex" position="right">
                 <sui-dropdown :text="currentUser.email" class="py-3" >
                     <sui-dropdown-menu class="left">
                         <sui-dropdown-item><sui-icon name="bell"/>Notificatons</sui-dropdown-item>
