@@ -16,6 +16,7 @@
                     { icon: 'user', title: 'Profile', route: 'cabinet-profile' },
                     { icon: 'cog', title: 'Settings', route: 'cabinet-settings' },
                     { icon: 'cog', title: 'Settings', route: 'cabinet-settings' },
+                    { icon: 'bell', title: 'Notifications', route: 'cabinet-notifys' },
                 ]"/>
             </div>
             <main class="p-5">
@@ -91,7 +92,7 @@ export default {
     }
 
     main{
-        height: calc( 100% - 90px );
+        height: calc( 100vh - 90px );
         flex-grow: 1;
         overflow-y: auto;
     }
@@ -110,6 +111,12 @@ export default {
     .lay{
         .sidebar{
             display: none;
+        }
+
+        main{
+            height: calc( 100% - 90px );
+            flex-grow: 1;
+            overflow-y: auto;
         }
     }
 }

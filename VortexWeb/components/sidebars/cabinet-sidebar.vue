@@ -29,6 +29,8 @@ export default {
     width: 100%;
     height: 100%;
     position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     .arrow{
         position: absolute;
