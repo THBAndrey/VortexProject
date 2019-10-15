@@ -47,7 +47,7 @@ export default async context => {
                     showToken('Unable to retrieve refreshed token ', err)
                 })
             })
-            
+
             messaging.onMessage((payload) => {
                 console.info('Payload', payload)
                 context.store.dispatch('notifications/showToast', {
@@ -55,7 +55,7 @@ export default async context => {
                     message: payload.data.message
                 })
             });
-              
+
 
         } else {
             console.log('Unable to get permission to notify.')

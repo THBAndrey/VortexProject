@@ -19,7 +19,8 @@ module.exports = {
   loading: { color: '#3B8070' },
   css: [
     '~assets/css/global.css',
-    '~assets/less/transitions.less'
+    '~assets/less/transitions.less',
+    '~assets/less/scrollbars.less'
   ],
   styleResources: {
     less: [
@@ -69,6 +70,7 @@ module.exports = {
           }
         },
         // The following options are optional:
+        useOnly: ['auth', 'messaging'],
         // useOnly: ['auth','firestore','functions','storage','realtimeDb', 'messaging', 'performance'],
         // customEnv: false,
         // functionsLocation: 'us-central1',

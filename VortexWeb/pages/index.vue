@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="theme == 'dark' ? 'bg-gray-900' : 'bg-white'">
+    <div >
       <section id="index-container" :class="theme" class="container" style="height:100%;">
         <div>
           <h1 class="title">
@@ -23,7 +23,7 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
   name: "Main",
-  transition: 'slide',
+  // transition: 'slide',
   layout: 'landing',
   data(){
     return{

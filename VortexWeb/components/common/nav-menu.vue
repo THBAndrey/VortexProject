@@ -4,29 +4,10 @@
             <slot name="content"></slot>
         </div>
         <div class="menu-collapse md:invisible" :class="userMenuOpen ? '' : 'height-hidden'">
-            <n-link tag="div" :to="currentUser ? localePath('cabinet-profile') : localePath('login')">
-                <span>{{ currentUser ? currentUser.email : $t('login') }}</span>
-            </n-link>
-            <n-link tag="div" :to="currentUser ? localePath('cabinet-profile') : localePath('login')">
-                <span>Settings</span>
-            </n-link>
-            <n-link tag="div" :to="currentUser ? localePath('cabinet-profile') : localePath('login')">
-                <span>Logout</span>
-            </n-link>
+            <slot name="menu-collapse"></slot>
         </div>
         <div class="menu-container md:invisible">
-            <n-link tag="div" :to="localePath('index')" class="menu-item">
-                <span class="vortex-icon" aria-hidden="true"></span>
-            </n-link>
-            <n-link tag="div" :to="localePath('news')" class="menu-item">
-                <i class="fa fa-rss" aria-hidden="true"></i>
-            </n-link>
-            <n-link tag="div" :to="localePath('desc')" class="menu-item">
-                <i class="fa fa-book" aria-hidden="true"></i>
-            </n-link>
-            <n-link tag="div" :to="localePath('about')" class="menu-item">
-                <i class="fa fa-info" aria-hidden="true"></i>
-            </n-link>
+            <slot name="menu"></slot>
             <div class="menu-item" @click="userMenuOpen = !userMenuOpen">
                 <i class="fa fa-chevron-up trasition-rotate" :class="userMenuOpen ? 'upturned': ''" aria-hidden="true"></i>
             </div>
@@ -127,17 +108,7 @@ export default {
 
 @media (max-width: 767px) {
     .content{
-        padding-bottom: @menu-height;
+        height: calc( 100vh - @menu-height );
     }
 }
-
-.vortex-icon{
-    mask: url(~static/vortex.svg);
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    mask-size: contain;
-    background: @text-color;
-}
-
 </style>
