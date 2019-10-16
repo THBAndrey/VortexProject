@@ -32,7 +32,9 @@
     "nuxt-izitoast": "^1.0.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-vue": "^0.8.1",
-    "vue-particles": "^1.0.9"
+    "vue-particles": "^1.0.9",
+    "vue-ripple-directive": "^2.0.1",
+    "vue-tilt.js": "^1.0.2"
   },
   "devDependencies": {
     "@babel/runtime-corejs2": "^7.6.3",

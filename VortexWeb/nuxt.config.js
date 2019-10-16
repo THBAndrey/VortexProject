@@ -116,6 +116,8 @@ module.exports = {
     { src: '~/plugins/notifications.js', ssr: false },
     { src: '~/plugins/vue-particles', ssr: false },
     { src: '~/plugins/nuxt-client-init', ssr: false },
+    { src: '~/plugins/vue-tilt', ssr: false },
+    { src: '~/plugins/ripple-effect', ssr: false },
   ],
   build: {
     vendor: [],

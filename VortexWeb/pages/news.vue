@@ -2,22 +2,22 @@
   <div class="container py-5">
     <div class="flex flex-wrap -mx-2">
       <div class="w-2/3 p-2">
-        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+        <div v-tilt="{ perspective: 1000, max: 2, reverse: true, glare: true }" class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
       </div>
       <div class="w-1/3 p-2">
-        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+        <div v-tilt="{ perspective: 1000, max: 2, reverse: true, glare: true }" class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
       </div>
       <div class="w-1/3 p-2">
-        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+        <div v-tilt="{ perspective: 1000, max: 2, reverse: true, glare: true }" class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
       </div>
       <div class="w-1/3 p-2">
-        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+        <div v-tilt="{ perspective: 1000, max: 2, reverse: true, glare: true }" class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
       </div>
       <div class="w-1/3 p-2">
-        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+        <div v-tilt="{ perspective: 1000, max: 2, reverse: true, glare: true }" class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
       </div>
       <div class="w-full p-2">
-        <div class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
+        <div v-tilt="{ perspective: 1000, max: 2, reverse: true, glare: true }" class="bg-gray-500 hover:bg-gray-600 active:bg-gray-700 cursor-pointer news-card"></div>
       </div>
     </div>
   </div>
