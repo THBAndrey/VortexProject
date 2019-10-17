@@ -16,7 +16,7 @@
                     { icon: 'user', title: 'Profile', route: 'cabinet-profile' },
                     { icon: 'cog', title: 'Settings', route: 'cabinet-settings' },
                     { icon: 'cog', title: 'Settings', route: 'cabinet-settings' },
-                    { icon: 'bell', title: 'Notifications', route: 'cabinet-notifys' },
+                    { icon: 'comments', title: 'Chat', route: 'cabinet-chat' },
                 ]"/>
             </div>
             <main class="p-5">
