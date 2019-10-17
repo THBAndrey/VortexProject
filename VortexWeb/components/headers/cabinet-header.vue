@@ -40,8 +40,12 @@ export default {
     },
     methods:{
         logout(){
-            this.logoutUser()
-            this.$nuxt.$router.push(this.localePath('index'))
+            this.$nuxt.$router.push(
+                this.localePath('index'),
+                (arg) => {
+                    this.logoutUser()
+                }
+            )
         },
         ...mapActions({
             logoutUser:'user/logoutUser',

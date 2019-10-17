@@ -93,7 +93,7 @@ export default {
 
     main{
         height: calc( 100vh - 90px );
-        flex-grow: 1;
+        flex: 1 1 0%;
         overflow-y: auto;
     }
 
