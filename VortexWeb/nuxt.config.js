@@ -36,17 +36,16 @@ module.exports = {
     'semantic-ui-vue/nuxt',
     'cookie-universal-nuxt',
     'nuxt-i18n',
+    '@nuxtjs/axios',
     ['@nuxtjs/pwa', { }],
-    [
-      'nuxt-izitoast',
-      {
-        position: 'bottomLeft',
-        transitionIn: 'bounceInRight',
-        transitionOut: 'fadeOutRight',
+    ['nuxt-izitoast', 
+      { 
+        position: 'bottomLeft', 
+        transitionIn: 'bounceInRight', 
+        transitionOut: 'fadeOutRight', 
       }
     ],
-    [
-      'nuxt-fire',
+    ['nuxt-fire',
       {
         // Required:
         config: {
@@ -118,6 +117,7 @@ module.exports = {
     { src: '~/plugins/nuxt-client-init', ssr: false },
     { src: '~/plugins/vue-tilt', ssr: false },
     { src: '~/plugins/ripple-effect', ssr: false },
+    { src: '~/plugins/axios' },
   ],
   build: {
     vendor: [],
