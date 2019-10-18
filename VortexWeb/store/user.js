@@ -1,13 +1,30 @@
 import cookies from 'js-cookie'
 
 export const state = () => ({
-    currentUser: null
+    currentUser: null,
+    currentToken: null
 })
 
 export const mutations = {
     setUser(state, user){
         state.currentUser = user
+    },
+    setToken(state, token){
+        state.currentToken = token
+        cookies.set('access_token', token)
+        localStorage.setItem('access_token', token)
+        this.$axios.setToken(token, 'Bearer')
+    },
+    removeToken(state){
+        state.currentToken = null
+        cookies.remove('access_token');
+        localStorage.removeItem('access_token')
+        this.$axios.setToken(false)
     }
+}
+
+export const getters = {
+    getToken: state => state.currentToken || cookies.get('access_token') || localStorage.getItem('access_token') 
 }
 
 export const actions = {
@@ -97,7 +114,8 @@ export const actions = {
             emailVerified: user.emailVerified,
             // providerData: user.providerData
         }
-        cookies.set('access_token', token)
+
+        commit('setToken', token)
         commit('setUser', userInfo)
     },
     logoutUser({ commit }){
@@ -107,7 +125,8 @@ export const actions = {
         }).catch((error) => {
             // An error happened.
         });
-        cookies.remove('access_token');
+
+        commit('removeToken')
         commit('setUser', null)
     },
     updateUser({ commit }, user){
@@ -124,5 +143,5 @@ export const actions = {
                 reject(error)
             })
         })
-    }
+    },
 }

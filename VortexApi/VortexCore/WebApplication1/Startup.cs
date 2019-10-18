@@ -16,10 +16,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using VortexCore.ManagersDB;
 using VortexCore.ModelsDB;
+using VortexCore.ModelsDB.MongoDB;
 using VortexCore.Services.Authentication;
+using VortexCore.Services.MongoDB;
+using VortexCore.Services.Hubs;
 
 namespace VortexCore
 {
@@ -37,6 +41,14 @@ namespace VortexCore
         {
             services.AddDbContext<VortexBDContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.Configure<ChatDatabaseSettings>(
+                Configuration.GetSection(nameof(ChatDatabaseSettings)));
+            services.AddSingleton<IChatDatabaseSettings>(sp => sp.GetRequiredService<IOptions<ChatDatabaseSettings>>().Value);
+            services.AddSingleton<ChatService>();
+
+            services.AddSignalR();
+
             services.AddControllers();
 
             //services.AddAuthentication(FirebaseAuthenticationOptions.Scheme)
@@ -98,6 +110,7 @@ namespace VortexCore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chat");
             });
         }
     }

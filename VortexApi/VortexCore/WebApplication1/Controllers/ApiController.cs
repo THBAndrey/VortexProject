@@ -59,7 +59,7 @@ namespace VortexCore.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> SecureResource()
+        public ActionResult SecureResource()
         {
             var user = User.Claims;
             return new JsonResult("SecureResource");
