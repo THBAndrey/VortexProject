@@ -2,7 +2,7 @@
     <div class="h-full flex items-stretch">
         <div class="flex-1 h-full flex flex-col items-stretch pr-3">
             <div ref="messagesArea" class="flex-1 overflow-auto flex flex-col pr-2 mb-3">
-                <div v-for="(message, index) in messages" :key="index" v-ripple.dblclick :class="message.userId == 0 ? 'mine' : ''" class="message-item bg-gray-200">
+                <div v-for="(message, index) in messages" :key="index" v-ripple.dblclick :class="message.userId == currentUser.uid ? 'mine' : ''" class="message-item bg-gray-200">
                     <span style="white-space: pre-line">{{ message.messageText }}</span>
                 </div>
             </div>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
 
 export default {
@@ -38,15 +39,29 @@ export default {
             messageText: ''
         }
     },
+    computed: {
+        ...mapState({
+            currentUser: state => state.user.currentUser,
+        }),
+        ...mapGetters({
+            userToken: 'user/getToken'
+        })
+    },
     methods: {
         initChatConnection(){
             this.connection = new HubConnectionBuilder()
-                .withUrl('https://localhost:4000/chat')
+                .withUrl('https://localhost:4000/chat', { accessTokenFactory: () => this.userToken })
                 .configureLogging(LogLevel.Information)
                 .build()
 
-            this.connection.on("ReceiveMessage", (user, message) => {
-                this.messages.unshift({ messageText: message, userId: user })
+            this.connection.on('ReceiveMessage', (uid, message) => {
+                this.messages.unshift({ messageText: message, userId: uid })
+            })
+
+            this.connection.on('ReciveOldMessages', (messages) => {
+                this.messages = messages.sort((a, b) => b.id.timestamp - a.id.timestamp).map(function (message) {
+                    return { messageText: message.messageText, userId: message.userId }
+                })
             })
 
             this.connection.start()
@@ -58,7 +73,7 @@ export default {
             }
 
             if(!isNullOrWhitespace(this.messageText)){
-                this.connection.invoke("SendMessage", 'User', this.messageText).then(() => {
+                this.connection.invoke('SendMessage', this.messageText).then(() => {
                     this.messageText = ''
                 })
             }

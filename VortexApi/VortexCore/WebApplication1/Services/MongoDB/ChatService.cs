@@ -20,5 +20,11 @@ namespace VortexCore.Services.MongoDB
         {
             return _messages.Find(message => true).ToList();
         }
+
+        public ChatMessage AddMessage(ChatMessage message)
+        {
+            _messages.InsertOne(message);
+            return message;
+        }
     }
 }

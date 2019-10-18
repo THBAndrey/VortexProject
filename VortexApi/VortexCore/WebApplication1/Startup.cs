@@ -39,11 +39,17 @@ namespace VortexCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOptions();
+
             services.AddDbContext<VortexBDContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.Configure<ChatDatabaseSettings>(
-                Configuration.GetSection(nameof(ChatDatabaseSettings)));
+            services.Configure<ChatDatabaseSettings>(options =>
+            {
+                options.ChatCollectionName = "VortexChat";
+                options.ConnectionString = "mongodb://localhost:27017";
+                options.DatabaseName = "VortexDB";
+            });
             services.AddSingleton<IChatDatabaseSettings>(sp => sp.GetRequiredService<IOptions<ChatDatabaseSettings>>().Value);
             services.AddSingleton<ChatService>();
 
@@ -69,25 +75,23 @@ namespace VortexCore
                             ValidateLifetime = true,
                             NameClaimType = "name"
                         };
-                        //            options.Events = new JwtBearerEvents
-                        //            {
-                        //                OnMessageReceived = async (context) =>
-                        //                {
-                        //                    try
-                        //                    {
+                        options.Events = new JwtBearerEvents
+                        {
+                            OnMessageReceived = context =>
+                            {
+                                var accessToken = context.Request.Query["access_token"];
 
-                        //                    }
-                        //                    catch (Exception ex)
-                        //                    {
-                        //                        context.Fail(ex);
-                        //                    }
-
-
-
-                        //                    var ctx = context;
-                        //                }
-                        //            };
-
+                                // If the request is for our hub...
+                                var path = context.HttpContext.Request.Path;
+                                if (!string.IsNullOrEmpty(accessToken) &&
+                                    (path.StartsWithSegments("/chat")))
+                                {
+                                    // Read the token out of the query string
+                                    context.Token = accessToken;
+                                }
+                                return Task.CompletedTask;
+                            }
+                        };
                     });
         }
 
