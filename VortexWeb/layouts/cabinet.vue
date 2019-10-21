@@ -15,6 +15,7 @@
                 <cabinet-sidebar :items="[
                     { icon: 'user', title: 'Profile', route: 'cabinet-profile' },
                     { icon: 'cog', title: 'Settings', route: 'cabinet-settings' },
+                    { icon: 'podcast', title: 'Streaming', route: 'cabinet-streaming' },
                     { icon: 'comments', title: 'Chat', route: 'cabinet-chat' },
                 ]"/>
             </div>
