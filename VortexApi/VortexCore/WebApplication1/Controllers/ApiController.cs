@@ -10,6 +10,7 @@ using VortexCore.ManagersDB;
 using VortexCore.ModelsDB;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using VortexCore.Services.MongoDB;
 
 namespace VortexCore.Controllers
 {
@@ -19,9 +20,11 @@ namespace VortexCore.Controllers
     public class ApiController : ControllerBase
     {
         private VortexManager ManagerDB { get; set; }
-        public ApiController(VortexBDContext context)
+        private readonly ChatService ChatManager;
+        public ApiController(VortexBDContext context, ChatService chatService)
         {
             ManagerDB = new VortexManager(context);
+            ChatManager = chatService;
         }
 
         public ActionResult SendMessage()
@@ -71,6 +74,12 @@ namespace VortexCore.Controllers
             var user = User.Claims.ToDictionary(x => x.Type, x => x.Value);
             await FirebaseAdmin.Auth.FirebaseAuth.DefaultInstance.SetCustomUserClaimsAsync(user["user_id"], new Dictionary<string, object>() { { ClaimTypes.Role, role } });
             return new OkResult();
+        }
+
+        public ActionResult GetMessages()
+        {
+            var res = ChatManager.GetMessages();
+            return new JsonResult(res);
         }
     }
 }

@@ -7,15 +7,15 @@ namespace VortexCore.ModelsDB.MongoDB
 {
     public interface IChatDatabaseSettings
     {
-        string ChatCollectionName { get; set; }
-        string ConnectionString { get; set; }
-        string DatabaseName { get; set; }
+        public string ChatCollectionName { get; set; }
+        public string ConnectionString { get; set; }
+        public string DatabaseName { get; set; }
     }
 
     public class ChatDatabaseSettings : IChatDatabaseSettings
     {
-        string IChatDatabaseSettings.ChatCollectionName { get; set; }
-        string IChatDatabaseSettings.ConnectionString { get; set; }
-        string IChatDatabaseSettings.DatabaseName { get; set; }
+        public string ChatCollectionName { get; set; }
+        public string ConnectionString { get; set; }
+        public string DatabaseName { get; set; }
     }
 }

@@ -7,8 +7,7 @@ namespace VortexCore.ModelsDB.MongoDB
     {
         [BsonId]
         public ObjectId Id { get; set; }
-        public BsonString MessageText { get; set; }
-        public BsonTimestamp Timestamp { get; set; }
-        public int UserId { get; set; }
+        public string MessageText { get; set; }
+        public string UserId { get; set; }
     }
 }
