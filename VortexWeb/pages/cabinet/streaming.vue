@@ -21,9 +21,6 @@ export default {
             this.timer = setTimeout(() => {
                 console.log('Request', this.text)
             }, 1000)
-        },
-        mounted(){
-            this.throttleTest()
         }
     }
 }

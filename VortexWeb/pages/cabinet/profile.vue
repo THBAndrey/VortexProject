@@ -10,12 +10,14 @@
                 <input v-model="role" placeholder="Auth role" >
             </sui-form-field>
             <sui-button @click.prevent="updateProfile()" type="submit">Submit</sui-button>
+            <sui-button @click.prevent="openModal" type="submit">OpenModal</sui-button>
         </sui-form>
     </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import Check2fa from '@/components/common/check-2fa.js'
 export default {
     middleware: 'auth',
     layout: 'cabinet',
@@ -29,6 +31,15 @@ export default {
         ...mapActions({
             updateUser: 'user/updateUser'
         }),
+        openModal(){
+            Check2fa.open({animationDuration: 300})
+            .then(() => {
+                console.log('YAY') 
+            })
+            .catch(() => {
+                console.log('Ohh') 
+            })
+        },
         updateProfile(){
             this.updateUser({ name: this.name, role: this.role }).catch(err => console.log(err))
         }
