@@ -11,6 +11,13 @@ npm-debug.log
 # Nuxt generate
 dist
 
-sw.*
+*sw.*
 
 cert/
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace

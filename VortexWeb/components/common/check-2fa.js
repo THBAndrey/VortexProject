@@ -8,7 +8,7 @@ export default {
         return new Promise((resolve, reject) => {
             let TwoFaWindow = Vue.extend(TwofaCheck)
             let instance = new TwoFaWindow({
-                propsData: { 
+                propsData: {
                     animDuration: anim,
                     positiveResult: () => {
                         resolve()
@@ -16,14 +16,14 @@ export default {
                             instance.$destroy()
                             parent.removeChild(instance.$el)
                         }, anim)
-                    }, 
+                    },
                     negativeResult: () => {
                         reject()
                         setTimeout(() => {
                             instance.$destroy()
                             parent.removeChild(instance.$el)
                         }, anim)
-                    } 
+                    }
                 }
             })
             instance.$mount()
