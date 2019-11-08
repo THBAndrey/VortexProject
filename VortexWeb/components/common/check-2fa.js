@@ -2,12 +2,14 @@ import Vue from 'vue'
 import TwofaCheck from './twofa-check'
 
 export default {
-    open: function({parentElement, animationDuration}){
+    open: function(store, {parentElement, animationDuration}){
         let parent = parentElement || document.body
         let anim = animationDuration || 500
+        console.log(store)
         return new Promise((resolve, reject) => {
             let TwoFaWindow = Vue.extend(TwofaCheck)
             let instance = new TwoFaWindow({
+                store,
                 propsData: {
                     animDuration: anim,
                     positiveResult: () => {
@@ -26,6 +28,7 @@ export default {
                     }
                 }
             })
+            console.log(instance)
             instance.$mount()
             parent.appendChild(instance.$el)
         })

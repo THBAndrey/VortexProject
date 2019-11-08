@@ -23,12 +23,13 @@
 </template>
 
 <script>
+
 export default {
     props: {
         positiveResult: {
             type: Function,
             reqired: true
-        }, 
+        },
         negativeResult: {
             type: Function,
             reqired: true
@@ -49,6 +50,7 @@ export default {
             this.positiveResult()
         },
         cancelResult(){
+            console.log(this)
             this.open = false
             this.negativeResult()
         }

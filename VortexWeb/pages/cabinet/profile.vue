@@ -18,6 +18,7 @@
 <script>
 import { mapActions } from 'vuex'
 import Check2fa from '@/components/common/check-2fa.js'
+
 export default {
     middleware: 'auth',
     layout: 'cabinet',
@@ -32,7 +33,7 @@ export default {
             updateUser: 'user/updateUser'
         }),
         openModal(){
-            Check2fa.open({animationDuration: 300})
+            Check2fa.open(this.$store, {animationDuration: 300})
             .then(() => {
                 console.log('YAY') 
             })
