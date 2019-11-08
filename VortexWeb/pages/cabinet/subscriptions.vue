@@ -6,70 +6,97 @@
                     {{ sub.name }}
                 </span>
                 <span class="card-price">
-                    ${{ sub.price }} <br>
+                    ₽{{ sub.price }} <br>
                     <span class="price-descrition">per month</span>
                 </span>
                 <div class="card-advantages">
-                    <div v-for="(adv, index) in sub.advantages" :key="index"> ✓ {{ adv }}</div>
-                    <div v-for="(adv, index) in sub.aditions" :key="index"> + {{ adv }}</div>
+                    <div v-for="(adv, index) in sub.advantages" :key="'adv' + index"> ✓ {{ adv }}</div>
+                    <div v-for="(adv, index) in sub.aditions" :key="'adi' + index"> + {{ adv }}</div>
                 </div>
-                <button class="select-sub shadow-lg">
+                <button class="select-sub shadow-lg" @click="selectSub(sub)">
                     Select
                 </button>
             </div>
         </div>
-
+        <sui-modal v-model="openPayment" :closable="true" size="mini">
+            <sui-modal-header>Make payment</sui-modal-header>
+            <sui-modal-content v-if="selectedSub">
+                <sui-form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                    <input type="hidden" name="receiver" value="410015951193873">
+                    <input type="hidden" name="quickpay-form" value="shop">
+                    <input type="hidden" name="targets" :value="`Подписка ${selectedSub.name}`">
+                    <sui-form-fields grouped>
+                        <label>Select payment type</label>
+                        <sui-form-field><sui-checkbox label="Яндекс.Деньгами" radio value="PC" v-model="paymentType"/></sui-form-field>
+                        <sui-form-field><sui-checkbox label="Банковской картой" radio value="AC" v-model="paymentType"/></sui-form-field>
+                    </sui-form-fields>
+                    <input type="hidden" name="paymentType" :value="paymentType">
+                    <input type="hidden" name="sum" :value="selectedSub.price" data-type="number">
+                    <sui-button type="submit">Submit</sui-button>
+                </sui-form>
+            </sui-modal-content>
+        </sui-modal>
     </div>
 </template>
 
 <script>
+
 export default {
     layout: 'cabinet',
+    components: {
+    },
     data(){
         return{
+            selectedSub: null,
+            openPayment: false,
+            paymentType: null,
             subs: [
                 {
                     name: 'basic',
                     price: 100,
                     selected: false,
                     advantages: [
-                        'Lorem ipsum sit dolor', 
+                        'Lorem ipsum sit dolor',
                         'Adipiscing ipsum',
                         'Dolar sitamet elete'
                     ],
-                    aditions: []
+                    aditions: [],
                 },
                 {
                     name: 'pro',
                     price: 200,
                     selected: true,
                     advantages: [
-                        'Lorem ipsum sit dolor', 
+                        'Lorem ipsum sit dolor',
                         'Adipiscing ipsum',
                         'Dolar sitamet elete'
                     ],
                     aditions: [
                         'Basic plan'
-                    ]
+                    ],
                 },
                 {
                     name: 'enterprise',
                     price: 300,
                     selected: false,
                     advantages: [
-                        'Lorem ipsum sit dolor', 
+                        'Lorem ipsum sit dolor',
                         'Adipiscing ipsum',
                         'Dolar sitamet elete'
                     ],
                     aditions: [
                         'Pro plan'
-                    ]
+                    ],
                 },
             ],
             selectedDefault: 1
         }
     },
     methods: {
+        selectSub(sub){
+            this.selectedSub = sub
+            this.openPayment = true
+        },
         cardOver(index){
             this.subs.forEach((sub) => sub.selected = false)
             this.subs[index].selected = true

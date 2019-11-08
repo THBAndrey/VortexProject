@@ -118,6 +118,7 @@ module.exports = {
     { src: '~/plugins/vue-tilt', ssr: false },
     { src: '~/plugins/ripple-effect', ssr: false },
     { src: '~/plugins/axios' },
+    // { src: '~/plugins/dynamic-modal' },
   ],
   build: {
     vendor: [],
